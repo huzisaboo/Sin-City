@@ -1,49 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MainCharacterController : MonoBehaviour
 {
     [SerializeField]
     private float m_speed = 0.0f;
+
     private Vector3 m_input = Vector3.zero;
     private Animator m_CharacterAnimator;
-
-
+    private int m_attackAnimationHash = 0;
+    private bool m_isAttacking = false;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        if(GetComponent<Animator>())
+        if (GetComponent<Animator>())
         {
             m_CharacterAnimator = GetComponent<Animator>();
         }
+        //hashing the animation from string to int for optimization
+        m_attackAnimationHash = Animator.StringToHash("Base Layer.Attack");
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        //Attack Logic
-        if(Input.GetKey(KeyCode.Space))
+        //-----Attack Logic------
+        if (Input.GetKeyDown(KeyCode.Space) && m_isAttacking == false)
         {
             m_CharacterAnimator.SetTrigger("Attack");
+            m_isAttacking = true;
             return;
         }
-        //Move Logic
+        //only check for animation attack state when the main character is attacking
+        if(m_isAttacking == true)
+        {
+            if (this.m_CharacterAnimator.GetCurrentAnimatorStateInfo(0).fullPathHash == m_attackAnimationHash)
+            {
+                return;
+            }
+            m_isAttacking = false;
+        }
+
+
+        //------Move Logic-------
         m_input.x = Input.GetAxis("Horizontal");
         m_input.y = Input.GetAxis("Vertical");
-        if(m_input.x < 0.0f)
+        //flip the game object if  main character is moving in the negative direction
+        if (m_input.x < 0.0f)
         {
             gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
         }
         else
         {
             gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-
         }
         m_CharacterAnimator.SetFloat("Speed", m_input.sqrMagnitude);
-
-
         transform.position += m_input * m_speed * Time.deltaTime;
     }
 }
