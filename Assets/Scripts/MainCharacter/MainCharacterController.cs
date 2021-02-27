@@ -56,12 +56,13 @@ public class MainCharacterController : MonoBehaviour
             gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
             //m_spriteRenderer.flipX = true;
         }
-        else
+        else if(m_input.x > 0.0f)
         {
             gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
             //m_spriteRenderer.flipX = false;
 
         }
+        
         m_CharacterAnimator.SetFloat("Speed", m_input.sqrMagnitude);
         transform.position += m_input * m_speed * Time.deltaTime;
     }
