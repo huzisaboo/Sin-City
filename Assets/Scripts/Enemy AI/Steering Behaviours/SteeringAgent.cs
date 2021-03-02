@@ -63,12 +63,13 @@ public class SteeringAgent : MonoBehaviour
 		{
 			//Vector3 acceleration = steeringForce * (1.0f / mass);
 			velocity = velocity + (steeringForce * Time.deltaTime);
-			//velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
+			velocity = Vector2.ClampMagnitude(velocity, maxSpeed);
 
 			float speed = velocity.magnitude;
 			animator.SetFloat("Speed", speed);
 			Vector2 tempVector = (velocity * Time.deltaTime);
 			transform.position += new Vector3(tempVector.x, tempVector.y, 0);
+
 			if(Mathf.Round(Vector2.Dot(transform.right, velocity)) < 0)
             {
 				if(!spriteRenderer.flipX)
