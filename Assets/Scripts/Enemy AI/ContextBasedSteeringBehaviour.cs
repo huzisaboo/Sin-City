@@ -16,6 +16,9 @@ public class ContextBasedSteeringBehaviour : SteeringBehaviourBase
     [SerializeField]
     private Transform m_parent;
 
+    [SerializeField]
+    private float m_maxForce;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -46,7 +49,7 @@ public class ContextBasedSteeringBehaviour : SteeringBehaviourBase
         Vector3 res = calculateFinaDirection();
         Vector2 finalVector = new Vector2(res.x, res.y).normalized;
         // 10.0 is the runrning power (maxforce)
-        return finalVector * 10.0f;
+        return finalVector * m_maxForce;
     }
 
     private Vector3 calculateFinaDirection()

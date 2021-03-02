@@ -318,6 +318,7 @@ MonoBehaviour:
   targetObj: {fileID: 331101809}
   m_numberOfRays: 24
   m_parent: {fileID: 828130161}
+  m_maxForce: 50
 --- !u!1 &1450185423
 GameObject:
   m_ObjectHideFlags: 0
