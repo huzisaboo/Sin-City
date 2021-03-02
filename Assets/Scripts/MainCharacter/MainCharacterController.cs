@@ -9,8 +9,7 @@ public class MainCharacterController : MonoBehaviour
     private Animator m_CharacterAnimator;
     private int m_attackAnimationHash = 0;
     private bool m_isAttacking = false;
-    private SpriteRenderer m_spriteRenderer;
-
+  
     // Start is called before the first frame update
     private void Start()
     {
@@ -18,10 +17,7 @@ public class MainCharacterController : MonoBehaviour
         {
             m_CharacterAnimator = GetComponent<Animator>();
         }
-        if(GetComponent<SpriteRenderer>())
-        {
-            m_spriteRenderer = GetComponent<SpriteRenderer>();
-        }
+        
         //hashing the animation from string to int for optimization
         m_attackAnimationHash = Animator.StringToHash("Base Layer.Attack");
     }
@@ -54,13 +50,10 @@ public class MainCharacterController : MonoBehaviour
         if (m_input.x < 0.0f)
         {
             gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
-            //m_spriteRenderer.flipX = true;
         }
         else if(m_input.x > 0.0f)
         {
             gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-            //m_spriteRenderer.flipX = false;
-
         }
         
         m_CharacterAnimator.SetFloat("Speed", m_input.sqrMagnitude);

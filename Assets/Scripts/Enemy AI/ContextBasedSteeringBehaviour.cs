@@ -106,7 +106,6 @@ public class ContextBasedSteeringBehaviour : SteeringBehaviourBase
         Vector3 otherPosiiton = Vector3.zero;
         Vector3 moveTowrdsDirectio = Vector3.zero;
         m_isHit = false;
-        Ray ray;
         //raycast loop
         for (int i = 0; i < m_numberOfRays; i++)
         {

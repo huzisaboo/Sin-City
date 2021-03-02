@@ -130,6 +130,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3143168852048301092, guid: f0c1cd392f6b5294080a568141f90579,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3143168852048301094, guid: f0c1cd392f6b5294080a568141f90579,
         type: 3}
       propertyPath: m_Name
@@ -251,7 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   summingMethod: 0
   mass: 1
-  maxSpeed: 6
+  maxSpeed: 3
   maxForce: 10
   velocity: {x: 0, y: 0}
   angularDampeningTime: 5
