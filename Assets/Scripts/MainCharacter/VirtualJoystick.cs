@@ -5,13 +5,13 @@ using UnityEngine;
 public class VirtualJoystick : MonoBehaviour
 {
     private Vector3 m_input;
-    private bool m_isTouched = false;
     private Vector2 m_joystickStartPoint;
     private Vector2 m_joystickEndPoint;
 
     private Vector2 m_offset;
     private Vector2 m_direction;
-
+    [SerializeField]
+    private float m_joystickOuterBoundOffset;
     [SerializeField]
     private Transform m_joystickBackground;
     [SerializeField]
@@ -58,7 +58,7 @@ public class VirtualJoystick : MonoBehaviour
             }
             else
             {
-                m_joystick.position = (touch - m_joystickStartPoint).normalized * (m_joystickBackground.GetComponent<RectTransform>().rect.width - 50f) + m_joystickStartPoint;
+                m_joystick.position = (touch - m_joystickStartPoint).normalized * (m_joystickBackground.GetComponent<RectTransform>().rect.width - m_joystickOuterBoundOffset) + m_joystickStartPoint;
             }
 
             return true;

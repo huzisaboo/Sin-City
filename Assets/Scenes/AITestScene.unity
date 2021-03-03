@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 656a40eab027627418ed47c2d493c06b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_joystickOuterBoundOffset: 60
   m_joystickBackground: {fileID: 1015304066}
   m_joystick: {fileID: 1274301506}
 --- !u!1 &674599697
