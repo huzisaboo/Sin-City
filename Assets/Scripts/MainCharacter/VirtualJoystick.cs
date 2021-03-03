@@ -47,16 +47,16 @@ public class VirtualJoystick : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            //Touch touch = Input.GetTouch(0);
-            Vector3 mouseInput = Input.mousePosition;
-            Vector2 touch = new Vector2(mouseInput.x, mouseInput.y);
-            m_joystickEndPoint = touch;
+            Touch touch = Input.GetTouch(0);
+            //Vector3 mouseInput = Input.mousePosition;
+            //Vector2 touch = new Vector2(mouseInput.x, mouseInput.y);
+            m_joystickEndPoint = touch.position;
 
             m_direction = (m_joystickEndPoint - m_joystickStartPoint).normalized;
 
             if(m_joystickBgRect != null)
             {
-                if (RectTransformUtility.RectangleContainsScreenPoint(m_joystickBgRect, touch))
+                if (RectTransformUtility.RectangleContainsScreenPoint(m_joystickBgRect, touch.position))
                 {
                     //Within bounds
                     m_joystick.position = m_joystickEndPoint;
@@ -64,7 +64,7 @@ public class VirtualJoystick : MonoBehaviour
                 else
                 {
                     //Outside bounds
-                    m_joystick.position = (touch - m_joystickStartPoint).normalized * (m_joystickBgRect.rect.width - m_joystickOuterBoundOffset) + m_joystickStartPoint;
+                    m_joystick.position = (touch.position - m_joystickStartPoint).normalized * (m_joystickBgRect.rect.width - m_joystickOuterBoundOffset) + m_joystickStartPoint;
                 }
 
                 return true;
