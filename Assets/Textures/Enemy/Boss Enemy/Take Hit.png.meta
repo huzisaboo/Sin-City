@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: f68bd023c1b4af64db379bccece31e41
+guid: 1f124fc1337a12b47a3158661a3cd4ad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2550854124190377833
-    second: spr_StrikerGetHit_strip_0
+      213: -7500690451134026123
+    second: Take Hit_0
   - first:
-      213: -2683278654611744306
-    second: spr_StrikerGetHit_strip_1
+      213: -889859373511162655
+    second: Take Hit_1
   - first:
-      213: 9204500937494646381
-    second: spr_StrikerGetHit_strip_2
+      213: -3088938797480143695
+    second: Take Hit_2
   - first:
-      213: -5359370597642476426
-    second: spr_StrikerGetHit_strip_3
+      213: -9206091644520726168
+    second: Take Hit_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_StrikerGetHit_strip_0
+      name: Take Hit_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 96
-        height: 96
+        width: 180
+        height: 180
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,20 +129,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 798dac560bb899cd0800000000000000
-      internalID: -2550854124190377833
+      spriteID: 57eedf966c138e790800000000000000
+      internalID: -7500690451134026123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_StrikerGetHit_strip_1
+      name: Take Hit_1
       rect:
         serializedVersion: 2
-        x: 96
+        x: 180
         y: 0
-        width: 96
-        height: 96
+        width: 180
+        height: 180
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec99a7eb74413cad0800000000000000
-      internalID: -2683278654611744306
+      spriteID: 1e4c0dd4d9596a3f0800000000000000
+      internalID: -889859373511162655
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_StrikerGetHit_strip_2
+      name: Take Hit_2
       rect:
         serializedVersion: 2
-        x: 192
+        x: 360
         y: 0
-        width: 96
-        height: 96
+        width: 180
+        height: 180
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6e4e1ac5d4fcbf70800000000000000
-      internalID: 9204500937494646381
+      spriteID: 1b416439782e125d0800000000000000
+      internalID: -3088938797480143695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_StrikerGetHit_strip_3
+      name: Take Hit_3
       rect:
         serializedVersion: 2
-        x: 288
+        x: 540
         y: 0
-        width: 96
-        height: 96
+        width: 180
+        height: 180
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,8 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 674e8db26d0bf95b0800000000000000
-      internalID: -5359370597642476426
+      spriteID: 86186aedc646d3080800000000000000
+      internalID: -9206091644520726168
       vertices: []
       indices: 
       edges: []
