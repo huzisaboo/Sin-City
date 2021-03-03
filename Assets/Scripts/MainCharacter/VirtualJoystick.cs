@@ -17,12 +17,10 @@ public class VirtualJoystick : MonoBehaviour
     [SerializeField]
     private Transform m_joystick;
     private RectTransform m_joystickBgRect;
-    private RectTransform m_joystickRect;
     // Start is called before the first frame update
     void Start()
     {
         m_joystickBgRect = m_joystickBackground.GetComponent<RectTransform>();
-        m_joystickRect = m_joystick.GetComponent<RectTransform>();
         m_joystickStartPoint = m_joystick.position;
     }
 
