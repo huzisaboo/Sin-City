@@ -44,7 +44,7 @@ public class VirtualJoystick : MonoBehaviour
 
     bool JoystickInput()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && !m_isAttacked)
         {
             Touch touch = Input.GetTouch(0);
             //Vector3 mouseInput = Input.mousePosition;
