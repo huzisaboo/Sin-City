@@ -9,10 +9,12 @@ public class MainCharacterController : MonoBehaviour
     private Animator m_CharacterAnimator;
     private int m_attackAnimationHash = 0;
     private bool m_isAttacking = false;
+    private VirtualJoystick m_virtualJoystick;
   
     // Start is called before the first frame update
     private void Start()
     {
+        m_virtualJoystick = new VirtualJoystick();
         if (GetComponent<Animator>())
         {
             m_CharacterAnimator = GetComponent<Animator>();
@@ -43,9 +45,15 @@ public class MainCharacterController : MonoBehaviour
         }
 
 
+        ////------Move Logic-------
+        //m_input.x = Input.GetAxis("Horizontal");
+        //m_input.y = Input.GetAxis("Vertical");
+
         //------Move Logic-------
-        m_input.x = Input.GetAxis("Horizontal");
-        m_input.y = Input.GetAxis("Vertical");
+        m_input.x = m_virtualJoystick.GetInput().x;
+        m_input.y = m_virtualJoystick.GetInput().y;
+
+
         //flip the game object if  main character is moving in the negative direction
         if (m_input.x < 0.0f)
         {
