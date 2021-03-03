@@ -14,7 +14,7 @@ public class MainCharacterController : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        m_virtualJoystick = new VirtualJoystick();
+        m_virtualJoystick = GetComponent<VirtualJoystick>();
         if (GetComponent<Animator>())
         {
             m_CharacterAnimator = GetComponent<Animator>();

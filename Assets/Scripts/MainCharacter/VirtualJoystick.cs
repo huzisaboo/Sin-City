@@ -48,7 +48,7 @@ public class VirtualJoystick : MonoBehaviour
             Vector2 touch = new Vector2(mouseInput.x, mouseInput.y);
             m_joystickEndPoint = touch;
 
-            m_offset =  (m_joystickEndPoint - m_joystickStartPoint).normalized;
+            m_offset =  (m_joystickEndPoint - m_joystickStartPoint);
             m_direction = Vector2.ClampMagnitude(m_offset, 1.0f);
 
             if (RectTransformUtility.RectangleContainsScreenPoint(m_joystickBackground.GetComponent<RectTransform>(), touch))
@@ -58,7 +58,7 @@ public class VirtualJoystick : MonoBehaviour
             }
             else
             {
-                m_joystick.position = ((touch - m_joystickStartPoint).normalized * (m_joystickBackground.GetComponent<RectTransform>().rect.width - 50f) + m_joystickStartPoint) * -0.1f;
+                m_joystick.position = (touch - m_joystickStartPoint).normalized * (m_joystickBackground.GetComponent<RectTransform>().rect.width - 50f) + m_joystickStartPoint;
             }
 
             return true;
