@@ -28,7 +28,7 @@ public class MainCharacterController : MonoBehaviour
     private void Update()
     {
         //-----Attack Logic------
-        if (Input.GetKeyDown(KeyCode.Space) && m_isAttacking == false)
+        if ((Input.GetKeyDown(KeyCode.Space) || m_virtualJoystick.getAttckButton() == true) && m_isAttacking == false)
         {
             m_CharacterAnimator.SetTrigger("Attack");
             m_isAttacking = true;
@@ -37,17 +37,13 @@ public class MainCharacterController : MonoBehaviour
         //only check for animation attack state when the main character is attacking
         if(m_isAttacking == true)
         {
-            if (this.m_CharacterAnimator.GetCurrentAnimatorStateInfo(0).fullPathHash == m_attackAnimationHash)
+            if (m_CharacterAnimator.GetCurrentAnimatorStateInfo(0).fullPathHash == m_attackAnimationHash)
             {
                 return;
             }
             m_isAttacking = false;
+            m_virtualJoystick.setAttackButton(false);
         }
-
-
-        ////------Move Logic-------
-        //m_input.x = Input.GetAxis("Horizontal");
-        //m_input.y = Input.GetAxis("Vertical");
 
         //------Move Logic-------
         m_input.x = m_virtualJoystick.GetInput().x;

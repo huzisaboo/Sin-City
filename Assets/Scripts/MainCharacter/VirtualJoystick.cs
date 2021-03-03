@@ -7,9 +7,10 @@ public class VirtualJoystick : MonoBehaviour
     private Vector3 m_input;
     private Vector2 m_joystickStartPoint;
     private Vector2 m_joystickEndPoint;
-
     private Vector2 m_offset;
     private Vector2 m_direction;
+    private bool m_isAttacked = false;
+    
     [SerializeField]
     private float m_joystickOuterBoundOffset;
     [SerializeField]
@@ -43,7 +44,7 @@ public class VirtualJoystick : MonoBehaviour
 
     bool JoystickInput()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && !m_isAttacked)
         {
             Touch touch = Input.GetTouch(0);
             //Vector3 mouseInput = Input.mousePosition;
@@ -71,6 +72,21 @@ public class VirtualJoystick : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void Attack()
+    {
+        m_isAttacked = true;
+    }
+
+    public bool getAttckButton()
+    {
+        return m_isAttacked;
+    }
+
+    public void setAttackButton(bool attack)
+    {
+        m_isAttacked = attack;
     }
 
     public Vector2 GetInput()

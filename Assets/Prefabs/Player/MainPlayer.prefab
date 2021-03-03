@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3143168852048301113}
   - component: {fileID: 7302537981319473335}
   - component: {fileID: 5521212935783203950}
+  - component: {fileID: 3099813201629309023}
+  - component: {fileID: 3643706421798286722}
   m_Layer: 0
   m_Name: MainPlayer
   m_TagString: Untagged
@@ -73,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 15
   m_Sprite: {fileID: -5197386408831837333, guid: 84983feac3b0bed4ab9f710cddaaa48b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -133,3 +135,40 @@ MonoBehaviour:
   m_joystickOuterBoundOffset: 60
   m_joystickBackground: {fileID: 0}
   m_joystick: {fileID: 0}
+--- !u!70 &3099813201629309023
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3143168852048301094}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.36, y: 0.42}
+  m_Direction: 0
+--- !u!50 &3643706421798286722
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3143168852048301094}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
