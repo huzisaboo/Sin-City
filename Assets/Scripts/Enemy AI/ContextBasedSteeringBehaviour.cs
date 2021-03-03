@@ -10,6 +10,7 @@ public class ContextBasedSteeringBehaviour : SteeringBehaviourBase
     private Vector3 m_result;
     private bool m_isHit = false;
     private bool m_isDangerVectorZero = false;
+    
     [SerializeField]
     private int m_numberOfRays = 0;
 
@@ -38,7 +39,7 @@ public class ContextBasedSteeringBehaviour : SteeringBehaviourBase
             angle = i * 2 * Mathf.PI / m_numberOfRays;
             //only cast in front of the object
             //angle *= 0.5f;
-            m_direction[i] = new Vector3(Mathf.Cos(angle) * 5, Mathf.Sin(angle) * 5 , 0 ).normalized;
+            m_direction[i] = new Vector3(Mathf.Cos(angle) * 5, Mathf.Sin(angle) * 5, 0).normalized;
         }
     }
 
@@ -115,7 +116,6 @@ public class ContextBasedSteeringBehaviour : SteeringBehaviourBase
             hit = Physics2D.Raycast(m_parent.position, m_direction[i], 4);
             if (hit)
             {
-
                 if (hit.transform.CompareTag("sphere"))
                 {
                     otherPosiiton = hit.transform.position;
@@ -156,6 +156,5 @@ public class ContextBasedSteeringBehaviour : SteeringBehaviourBase
                 }
             }
         }
-
     }
 }
