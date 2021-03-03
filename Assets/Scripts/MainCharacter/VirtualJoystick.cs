@@ -16,9 +16,13 @@ public class VirtualJoystick : MonoBehaviour
     private Transform m_joystickBackground;
     [SerializeField]
     private Transform m_joystick;
+    private RectTransform m_joystickBgRect;
+    private RectTransform m_joystickRect;
     // Start is called before the first frame update
     void Start()
     {
+        m_joystickBgRect = m_joystickBackground.GetComponent<RectTransform>();
+        m_joystickRect = m_joystick.GetComponent<RectTransform>();
         m_joystickStartPoint = m_joystick.position;
     }
 
@@ -48,20 +52,24 @@ public class VirtualJoystick : MonoBehaviour
             Vector2 touch = new Vector2(mouseInput.x, mouseInput.y);
             m_joystickEndPoint = touch;
 
-            m_offset =  (m_joystickEndPoint - m_joystickStartPoint);
-            m_direction = Vector2.ClampMagnitude(m_offset, 1.0f);
+            m_direction = (m_joystickEndPoint - m_joystickStartPoint).normalized;
 
-            if (RectTransformUtility.RectangleContainsScreenPoint(m_joystickBackground.GetComponent<RectTransform>(), touch))
+            if(m_joystickBgRect != null)
             {
+                if (RectTransformUtility.RectangleContainsScreenPoint(m_joystickBgRect, touch))
+                {
+                    //Within bounds
+                    m_joystick.position = m_joystickEndPoint;
+                }
+                else
+                {
+                    //Outside bounds
+                    m_joystick.position = (touch - m_joystickStartPoint).normalized * (m_joystickBgRect.rect.width - m_joystickOuterBoundOffset) + m_joystickStartPoint;
+                }
 
-                m_joystick.position = m_joystickEndPoint;
-            }
-            else
-            {
-                m_joystick.position = (touch - m_joystickStartPoint).normalized * (m_joystickBackground.GetComponent<RectTransform>().rect.width - m_joystickOuterBoundOffset) + m_joystickStartPoint;
-            }
+                return true;
 
-            return true;
+            }
         }
 
         return false;
