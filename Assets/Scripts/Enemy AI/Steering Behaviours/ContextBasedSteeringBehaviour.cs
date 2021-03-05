@@ -12,7 +12,7 @@ public class ContextBasedSteeringBehaviour : SteeringBehaviourBase
     private bool m_isDangerArrayZero = false;
     private bool m_isPlayerHit = false;
     private LayerMask m_obstacleLayerMask;
-
+    private SteeringAgent m_steeringAgent;
     [SerializeField]
     private int m_numberOfRays = 0;
     [SerializeField]
@@ -22,6 +22,15 @@ public class ContextBasedSteeringBehaviour : SteeringBehaviourBase
     [SerializeField]
     private float m_maxForce = 0.0f;
 
+    private void Awake()
+    {
+        m_steeringAgent = GetComponentInParent<SteeringAgent>();
+        if (m_steeringAgent != null && m_steeringAgent.GetTarget()==null)
+        {
+            m_steeringAgent.SetTarget(targetObj);
+        }
+    }
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -30,6 +39,7 @@ public class ContextBasedSteeringBehaviour : SteeringBehaviourBase
         m_direction = new Vector3[m_numberOfRays];
         m_obstacleLayerMask = LayerMask.GetMask("obstacle");
 
+        
         float angle = 0;
 
         for (int i = 0; i < m_numberOfRays; i++)

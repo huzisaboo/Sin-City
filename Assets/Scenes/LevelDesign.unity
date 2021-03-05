@@ -226,6 +226,11 @@ PrefabInstance:
       propertyPath: m_detectionRange
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4133803765507678239, guid: 1e2f28c56421dec40881a229a4ae04b9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8047574604617608872, guid: 1e2f28c56421dec40881a229a4ae04b9,
         type: 3}
       propertyPath: m_Name
@@ -3718,6 +3723,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1207325584866395451, guid: f63a6b25cc340424d89a968d1638e3e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7671593075026397026, guid: f63a6b25cc340424d89a968d1638e3e3,
         type: 3}
       propertyPath: targetObj
@@ -4777,6 +4787,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BossEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630529052374422541, guid: ad4874c153aba3c4480b2ed4a04fee08,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2630529052374422543, guid: ad4874c153aba3c4480b2ed4a04fee08,
         type: 3}

@@ -27,7 +27,7 @@ public class SteeringAgent : MonoBehaviour
 	[HideInInspector] public bool reachedGoal = false;
 
 	private Animator animator;
-
+	private Transform m_target;
 	private void Start()
 	{
 		animator = GetComponent<Animator>();
@@ -127,4 +127,14 @@ public class SteeringAgent : MonoBehaviour
 
 		return totalForce;
 	}
+
+	public void SetTarget(Transform p_target)
+    {
+		m_target = p_target;
+    }
+
+	public Transform GetTarget()
+    {
+		return m_target;
+    }
 }
