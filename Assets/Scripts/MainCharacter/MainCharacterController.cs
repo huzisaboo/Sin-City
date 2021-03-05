@@ -5,16 +5,20 @@ public class MainCharacterController : MonoBehaviour
     [SerializeField]
     private float m_speed = 0.0f;
 
+    [SerializeField]
+    private VirtualJoystick m_virtualJoystick;
+
+    [SerializeField]
+    private VirtualButton m_attackButton;
+
     private Vector3 m_input = Vector3.zero;
     private Animator m_CharacterAnimator;
     private int m_attackAnimationHash = 0;
     private bool m_isAttacking = false;
-    private VirtualJoystick m_virtualJoystick;
   
     // Start is called before the first frame update
     private void Start()
     {
-        m_virtualJoystick = GetComponent<VirtualJoystick>();
         if (GetComponent<Animator>())
         {
             m_CharacterAnimator = GetComponent<Animator>();
@@ -28,21 +32,25 @@ public class MainCharacterController : MonoBehaviour
     private void Update()
     {
         //-----Attack Logic------
-        if ((Input.GetKeyDown(KeyCode.Space) || m_virtualJoystick.getAttckButton() == true) && m_isAttacking == false)
+        if ((Input.GetKeyDown(KeyCode.Space)) || (m_attackButton.IsPressed()) && m_isAttacking == false)
         {
             m_CharacterAnimator.SetTrigger("Attack");
             m_isAttacking = true;
             return;
         }
         //only check for animation attack state when the main character is attacking
-        if (m_isAttacking == true)
+        //if (m_isAttacking == true)
+        //{
+        //    if (m_CharacterAnimator.GetCurrentAnimatorStateInfo(0).fullPathHash == m_attackAnimationHash)
+        //    {
+        //        return;
+        //    }
+        //    m_isAttacking = false;
+        //   // m_virtualJoystick.setAttackButton(false);
+        //}
+        else if((!m_attackButton.IsPressed() && m_isAttacking))
         {
-            if (m_CharacterAnimator.GetCurrentAnimatorStateInfo(0).fullPathHash == m_attackAnimationHash)
-            {
-                return;
-            }
             m_isAttacking = false;
-            m_virtualJoystick.setAttackButton(false);
         }
 
         //------Move Logic-------

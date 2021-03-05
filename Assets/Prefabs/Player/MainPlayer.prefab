@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3143168852048301092}
   - component: {fileID: 3143168852048301113}
   - component: {fileID: 7302537981319473335}
-  - component: {fileID: 5521212935783203950}
   - component: {fileID: 3099813201629309023}
   - component: {fileID: 3643706421798286722}
   m_Layer: 6
@@ -101,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 5
+  m_virtualJoystick: {fileID: 0}
 --- !u!95 &7302537981319473335
 Animator:
   serializedVersion: 3
@@ -120,21 +120,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5521212935783203950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3143168852048301094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 656a40eab027627418ed47c2d493c06b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_joystickOuterBoundOffset: 60
-  m_joystickBackground: {fileID: 0}
-  m_joystick: {fileID: 0}
 --- !u!70 &3099813201629309023
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
