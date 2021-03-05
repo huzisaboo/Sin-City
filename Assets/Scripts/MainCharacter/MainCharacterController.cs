@@ -54,8 +54,14 @@ public class MainCharacterController : MonoBehaviour
         }
 
         //------Move Logic-------
+
         m_input.x = m_virtualJoystick.GetInput().x;
         m_input.y = m_virtualJoystick.GetInput().y;
+        if (m_input == Vector3.zero)
+        {
+            m_input.x = Input.GetAxis("Horizontal");
+            m_input.y = Input.GetAxis("Vertical");
+        }
 
 
         //flip the game object if  main character is moving in the negative direction

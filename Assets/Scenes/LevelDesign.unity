@@ -216,6 +216,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1033248673379895472, guid: 1e2f28c56421dec40881a229a4ae04b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1580159323886609288, guid: 1e2f28c56421dec40881a229a4ae04b9,
         type: 3}
       propertyPath: m_Enabled
@@ -229,12 +234,17 @@ PrefabInstance:
     - target: {fileID: 1580159323886609288, guid: 1e2f28c56421dec40881a229a4ae04b9,
         type: 3}
       propertyPath: m_attackDuration
-      value: 0.5
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580159323886609288, guid: 1e2f28c56421dec40881a229a4ae04b9,
+        type: 3}
+      propertyPath: m_levelThreshold
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 1580159323886609288, guid: 1e2f28c56421dec40881a229a4ae04b9,
         type: 3}
       propertyPath: m_stoppingDistance
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3323601649071624751, guid: 1e2f28c56421dec40881a229a4ae04b9,
         type: 3}
@@ -258,8 +268,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8047574604617608872, guid: 1e2f28c56421dec40881a229a4ae04b9,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047574604617608872, guid: 1e2f28c56421dec40881a229a4ae04b9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8047574604617608886, guid: 1e2f28c56421dec40881a229a4ae04b9,
         type: 3}
@@ -5686,6 +5701,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3643706421798286722, guid: f0c1cd392f6b5294080a568141f90579,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.49355045
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0c1cd392f6b5294080a568141f90579, type: 3}
