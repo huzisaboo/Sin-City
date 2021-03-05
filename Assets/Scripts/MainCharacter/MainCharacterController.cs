@@ -35,7 +35,7 @@ public class MainCharacterController : MonoBehaviour
             return;
         }
         //only check for animation attack state when the main character is attacking
-        if(m_isAttacking == true)
+        if (m_isAttacking == true)
         {
             if (m_CharacterAnimator.GetCurrentAnimatorStateInfo(0).fullPathHash == m_attackAnimationHash)
             {
@@ -51,16 +51,21 @@ public class MainCharacterController : MonoBehaviour
 
 
         //flip the game object if  main character is moving in the negative direction
+        FlipObject();
+
+        m_CharacterAnimator.SetFloat("Speed", m_input.sqrMagnitude);
+        transform.position += m_input * m_speed * Time.deltaTime;
+    }
+
+    private void FlipObject()
+    {
         if (m_input.x < 0.0f)
         {
             gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
         }
-        else if(m_input.x > 0.0f)
+        else if (m_input.x > 0.0f)
         {
             gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
         }
-        
-        m_CharacterAnimator.SetFloat("Speed", m_input.sqrMagnitude);
-        transform.position += m_input * m_speed * Time.deltaTime;
     }
 }

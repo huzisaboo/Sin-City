@@ -13,6 +13,9 @@ public class ContextBasedSteeringBehaviour : SteeringBehaviourBase
     private bool m_isPlayerHit = false;
     private LayerMask m_obstacleLayerMask;
     private SteeringAgent m_steeringAgent;
+    private Vector3 m_intrestDirectionVector;
+    private Vector3 m_dangerDirectionVector;
+
     [SerializeField]
     private int m_numberOfRays = 0;
     [SerializeField]
@@ -63,7 +66,6 @@ public class ContextBasedSteeringBehaviour : SteeringBehaviourBase
         calcuateIntrestDirection();
         Vector3 res = calculateFinaDirection();
         Vector2 finalVector = new Vector2(res.x, res.y).normalized;
-        // 10.0 is the runrning power (maxforce)
         return finalVector * m_maxForce;
     }
 
@@ -100,16 +102,16 @@ public class ContextBasedSteeringBehaviour : SteeringBehaviourBase
     private void calcuateIntrestDirection()
     {
         //vector between target and current object
-        Vector3 moveTowrdsDirectio = Vector3.Normalize(targetObj.position - m_parent.position);
+        m_intrestDirectionVector = Vector3.Normalize(targetObj.position - m_parent.position);
         // turn the Vector by -90 degrees
         if (m_isPlayerHit == true)
         {
-            moveTowrdsDirectio = Quaternion.AngleAxis(-90, Vector3.forward) * moveTowrdsDirectio;
+            m_intrestDirectionVector = Quaternion.AngleAxis(-90, Vector3.forward) * m_intrestDirectionVector;
         }
         float dot = 0.0f;
         for (int i = 0; i < m_numberOfRays; i++)
         {
-            dot = Vector3.Dot(moveTowrdsDirectio, m_direction[i]);
+            dot = Vector3.Dot(m_intrestDirectionVector, m_direction[i]);
             if (dot > 0)
             {
                 m_intrest[i] = (m_direction[i] * dot);
@@ -126,8 +128,8 @@ public class ContextBasedSteeringBehaviour : SteeringBehaviourBase
     private void calcuateDangerDirection()
     {
         RaycastHit2D hit;
-        Vector3 otherPosiiton = Vector3.zero;
-        Vector3 moveTowrdsDirectio = Vector3.zero;
+        //Vector3 otherPosiiton = Vector3.zero;
+        Vector3 m_dangerDirectionVector = Vector3.zero;
         m_isHit = false;
         //raycast loop
         for (int i = 0; i < m_numberOfRays; i++)
@@ -141,8 +143,8 @@ public class ContextBasedSteeringBehaviour : SteeringBehaviourBase
                     case "obstacle":
                         {
                             //vector between hit object and current object
-                            moveTowrdsDirectio = Vector3.Normalize(hit.transform.position - m_parent.position);
-                            MoveAwayFromObstacle(moveTowrdsDirectio);
+                            m_dangerDirectionVector = Vector3.Normalize(hit.transform.position - m_parent.position);
+                            MoveAwayFromObstacle(m_dangerDirectionVector);
                             break;
                         }
                     //case "enemy":

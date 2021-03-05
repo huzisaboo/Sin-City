@@ -216,6 +216,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1580159323886609288, guid: 1e2f28c56421dec40881a229a4ae04b9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580159323886609288, guid: 1e2f28c56421dec40881a229a4ae04b9,
+        type: 3}
+      propertyPath: m_attackCooldown
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580159323886609288, guid: 1e2f28c56421dec40881a229a4ae04b9,
+        type: 3}
+      propertyPath: m_attackDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580159323886609288, guid: 1e2f28c56421dec40881a229a4ae04b9,
+        type: 3}
+      propertyPath: m_stoppingDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3323601649071624751, guid: 1e2f28c56421dec40881a229a4ae04b9,
         type: 3}
       propertyPath: targetObj
