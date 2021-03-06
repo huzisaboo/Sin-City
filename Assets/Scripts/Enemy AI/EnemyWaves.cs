@@ -15,7 +15,7 @@ public class EnemyWaves : MonoBehaviour
     private float m_waveTimer;
     private EnemySpawner m_enemySpawner;
     private bool m_waveStarted = false;
-    
+    private int m_waveCounter = 0;
     private int m_waveEnemyCount;
     // Start is called before the first frame update
     void Start()
@@ -51,6 +51,12 @@ public class EnemyWaves : MonoBehaviour
         Debug.Log("New Wave Starts");
         m_waveStarted = true;
         m_waveEnemyCount = m_Waves[0];
+        m_waveCounter++;
+        if(m_Waves.Count == 1)
+        {
+            m_waveCounter = 0;
+        }
+        UIManager.Instance.SetWaveCountText(m_waveCounter);
     }
 
     public void EndWave()
