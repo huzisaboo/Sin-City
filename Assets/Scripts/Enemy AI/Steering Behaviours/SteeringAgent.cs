@@ -28,7 +28,15 @@ public class SteeringAgent : MonoBehaviour
 
 	private Animator animator;
 	private Transform m_target;
-	private void Start()
+
+    private void Awake()
+    {
+        if(!GameManager.Instance.GetEnemyList().Contains(this))
+        {
+			GameManager.Instance.AddEnemy(this);
+        }
+    }
+    private void Start()
 	{
 		animator = GetComponent<Animator>();
 		spriteRenderer = GetComponent<SpriteRenderer>();

@@ -692,7 +692,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9a4cad7bdccd824cb81d9d3086596d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Waves: 05000000
+  m_Waves: 050000000300000004000000
+  m_waveStartTime: 2
   m_enemySpawnDuration: 2
 --- !u!4 &556502116
 Transform:
@@ -5712,3 +5713,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerTransform: {fileID: 2088314879}
+  m_waveEndEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 556502115}
+        m_TargetAssemblyTypeName: EnemyWaves, Assembly-CSharp
+        m_MethodName: EndWave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

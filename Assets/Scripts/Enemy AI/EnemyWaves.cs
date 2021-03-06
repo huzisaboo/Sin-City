@@ -6,13 +6,16 @@ public class EnemyWaves : MonoBehaviour
 {
     [SerializeField]
     private List<int> m_Waves;  //Size of list determines no of waves. Each item in list determines no of enemies for that wave
+
+    [SerializeField]
+    private float m_waveStartTime = 2.0f;   //Defines the cooldown time before a new wave begins
     [SerializeField]
     private float m_enemySpawnDuration;
     private float m_enemyTimer;
     private float m_waveTimer;
     private EnemySpawner m_enemySpawner;
     private bool m_waveStarted = false;
-    private float m_waveStartTime = 2.0f;
+    
     private int m_waveEnemyCount;
     // Start is called before the first frame update
     void Start()
@@ -37,16 +40,15 @@ public class EnemyWaves : MonoBehaviour
                 m_enemySpawner.SpawnEnemy();
                 m_enemyTimer = 0.0f;
                 m_waveEnemyCount--;
-                Debug.Log("Spawn");
             }
 
         }
-
 
     }
 
     public void StartWave()
     {
+        Debug.Log("New Wave Starts");
         m_waveStarted = true;
         m_waveEnemyCount = m_Waves[0];
     }
@@ -56,5 +58,12 @@ public class EnemyWaves : MonoBehaviour
         m_Waves.RemoveAt(0);
         m_waveStarted = false;
         m_waveTimer = 0.0f;
+
+        Debug.Log("This Wave Ends");
+
+        if(m_Waves.Count == 0)
+        {
+            GameManager.Instance.EndGame();
+        }
     }
 }

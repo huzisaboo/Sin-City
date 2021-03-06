@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyActions : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class EnemyActions : MonoBehaviour
     private Transform m_target;
     private bool m_isAttacking = false;
     private SpriteRenderer m_spriteRenderer;
+    public bool m_kill = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +61,11 @@ public class EnemyActions : MonoBehaviour
             Attack(false);
         }
 
+        if(m_kill)
+        {
+            Die();
+        }
+
     }
 
 
@@ -68,6 +75,16 @@ public class EnemyActions : MonoBehaviour
         m_steeringAgent.enabled = !value;
         m_animator.SetBool("Attack", value);
         m_isAttacking = value;
+    }
+
+    private void Die()
+    {
+        GameManager.Instance.RemoveEnemy(m_steeringAgent);
+        if(GameManager.Instance.GetEnemyList().Count==0)
+        {
+            GameManager.Instance.EndWave();
+        }
+        Destroy(this.gameObject);
     }
 }
 
