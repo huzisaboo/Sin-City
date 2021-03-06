@@ -2,20 +2,29 @@ using UnityEngine;
 
 public class MainCharacterController : MonoBehaviour
 {
+    private Vector3 m_input = Vector3.zero;
+    private Animator m_CharacterAnimator;
+    private int m_attackAnimationHash = 0;
+    private bool m_isAttacking = false;
+    private float m_health = 0.0f;
+    private LayerMask m_layerMask;
+
+    [SerializeField]
+    private float m_maxHealth = 100.0f;
+
+    [SerializeField]
+    private float m_AttackDamage = 0.0f;
+
     [SerializeField]
     private float m_speed = 0.0f;
 
+    [Header("--Joystick--")]
     [SerializeField]
     private VirtualJoystick m_virtualJoystick;
 
     [SerializeField]
     private VirtualButton m_attackButton;
 
-    private Vector3 m_input = Vector3.zero;
-    private Animator m_CharacterAnimator;
-    private int m_attackAnimationHash = 0;
-    private bool m_isAttacking = false;
-  
     // Start is called before the first frame update
     private void Start()
     {
@@ -23,7 +32,9 @@ public class MainCharacterController : MonoBehaviour
         {
             m_CharacterAnimator = GetComponent<Animator>();
         }
-        
+        m_health = m_maxHealth;
+        m_layerMask = LayerMask.GetMask("obstacle");
+
         //hashing the animation from string to int for optimization
         m_attackAnimationHash = Animator.StringToHash("Base Layer.Attack");
     }
@@ -36,6 +47,8 @@ public class MainCharacterController : MonoBehaviour
         {
             m_CharacterAnimator.SetTrigger("Attack");
             m_isAttacking = true;
+
+            AttackEnemy();
             return;
         }
         //only check for animation attack state when the main character is attacking
@@ -48,7 +61,7 @@ public class MainCharacterController : MonoBehaviour
         //    m_isAttacking = false;
         //   // m_virtualJoystick.setAttackButton(false);
         //}
-        else if((!m_attackButton.IsPressed() && m_isAttacking))
+        else if ((!m_attackButton.IsPressed() && m_isAttacking))
         {
             m_isAttacking = false;
         }
@@ -63,12 +76,23 @@ public class MainCharacterController : MonoBehaviour
             m_input.y = Input.GetAxis("Vertical");
         }
 
-
         //flip the game object if  main character is moving in the negative direction
         FlipObject();
 
         m_CharacterAnimator.SetFloat("Speed", m_input.sqrMagnitude);
         transform.position += m_input * m_speed * Time.deltaTime;
+    }
+
+    private void AttackEnemy()
+    {
+        RaycastHit2D[] hitArray = Physics2D.BoxCastAll(transform.position * new Vector2(3, 0), new Vector2(3, 1), 0, transform.forward , m_layerMask);
+        foreach(RaycastHit2D hit in hitArray)
+        {
+            if(hit.transform.CompareTag("enemy"))
+            {
+                hit.transform.GetComponent<EnemyActions>().TakeDamage(m_AttackDamage);
+            }
+        }
     }
 
     private void FlipObject()
@@ -80,6 +104,16 @@ public class MainCharacterController : MonoBehaviour
         else if (m_input.x > 0.0f)
         {
             gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        m_health -= damage;
+        //m_CharacterAnimator.SetTrigger("isHit");
+        if (m_health <= 0.0f)
+        {
+           // Debug.Log("Dead");
         }
     }
 }

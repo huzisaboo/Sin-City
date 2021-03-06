@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 1207325584866395449}
   - component: {fileID: 1207325584866395450}
   - component: {fileID: 4434998928180836211}
+  - component: {fileID: 8060309050986069414}
   - component: {fileID: 6328444777569383683}
   - component: {fileID: 7123309069045619344}
-  - component: {fileID: 8060309050986069414}
   m_Layer: 6
   m_Name: FireEnemy
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,6 +128,25 @@ MonoBehaviour:
   angularDampeningTime: 5
   deadZone: 10
   reachedGoal: 0
+--- !u!114 &8060309050986069414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207325584866395451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05541408eb3db4488832c9a979825f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_kill: 0
+  m_maxHealth: 100
+  m_AttackDamage: 10
+  m_attackDuration: 0.6
+  m_attackCooldown: 3
+  m_stoppingDistance: 1
+  m_levelThreshold: 0.85
 --- !u!70 &6328444777569383683
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -165,18 +184,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8060309050986069414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207325584866395451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a05541408eb3db4488832c9a979825f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5650370557080787759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -207,7 +214,7 @@ PrefabInstance:
     - target: {fileID: 2602200237429480525, guid: b1c568d13d125084c955f2d71249df26,
         type: 3}
       propertyPath: m_detectionRange
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4181785904011573305, guid: b1c568d13d125084c955f2d71249df26,
         type: 3}

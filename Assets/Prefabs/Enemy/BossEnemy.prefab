@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 8306424987947740420}
   - component: {fileID: 6106341409861251948}
   - component: {fileID: 8950850093776239515}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BossEnemy
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,7 +194,7 @@ PrefabInstance:
     - target: {fileID: 2602200237429480525, guid: b1c568d13d125084c955f2d71249df26,
         type: 3}
       propertyPath: m_detectionRange
-      value: 1.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4181785904011573305, guid: b1c568d13d125084c955f2d71249df26,
         type: 3}
