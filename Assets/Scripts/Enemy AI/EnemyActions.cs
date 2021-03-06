@@ -29,7 +29,7 @@ public class EnemyActions : MonoBehaviour
         Vector2 direction = (m_target.position - transform.position).normalized;
         float dot = Vector2.Dot(transform.right, direction);
         //Debug.Log(dot);
-        Debug.Log(distance);
+       // Debug.Log(distance);
         if ((distance <= m_stoppingDistance) && !m_isAttacking)
         {
             // Debug.Log("Within range");

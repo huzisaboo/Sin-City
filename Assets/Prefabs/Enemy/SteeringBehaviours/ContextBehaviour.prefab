@@ -49,5 +49,6 @@ MonoBehaviour:
   steeringAgent: {fileID: 0}
   targetObj: {fileID: 0}
   m_numberOfRays: 24
+  m_detectionRange: 0.5
   m_parent: {fileID: 0}
-  m_maxForce: 6
+  m_maxForce: 10

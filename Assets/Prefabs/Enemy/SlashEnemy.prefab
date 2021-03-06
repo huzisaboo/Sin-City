@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_stoppingDistance: 0.4
-  m_attackCooldown: 0
+  m_levelThreshold: 0.95
 --- !u!70 &5561462426904030513
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -201,16 +201,6 @@ PrefabInstance:
       propertyPath: m_parent
       value: 
       objectReference: {fileID: 8047574604617608886}
-    - target: {fileID: 2602200237429480525, guid: b1c568d13d125084c955f2d71249df26,
-        type: 3}
-      propertyPath: m_maxForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2602200237429480525, guid: b1c568d13d125084c955f2d71249df26,
-        type: 3}
-      propertyPath: m_detectionRange
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4181785904011573305, guid: b1c568d13d125084c955f2d71249df26,
         type: 3}
       propertyPath: m_RootOrder

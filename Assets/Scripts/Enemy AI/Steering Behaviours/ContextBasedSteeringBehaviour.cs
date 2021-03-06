@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class ContextBasedSteeringBehaviour : SteeringBehaviourBase
 {
-    public Transform targetObj;
 
     private Vector3[] m_intrest;
     private Vector3[] m_danger;
@@ -15,6 +14,8 @@ public class ContextBasedSteeringBehaviour : SteeringBehaviourBase
     private SteeringAgent m_steeringAgent;
     private Vector3 m_intrestDirectionVector;
     private Vector3 m_dangerDirectionVector;
+    private Transform targetObj;
+
 
     [SerializeField]
     private int m_numberOfRays = 0;
@@ -27,6 +28,7 @@ public class ContextBasedSteeringBehaviour : SteeringBehaviourBase
 
     private void Awake()
     {
+        targetObj = GameManager.Instance.GetPlayer();
         m_steeringAgent = GetComponentInParent<SteeringAgent>();
         if (m_steeringAgent != null && m_steeringAgent.GetTarget()==null)
         {
