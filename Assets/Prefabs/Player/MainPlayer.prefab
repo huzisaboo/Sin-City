@@ -99,8 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbb160c2da1f53f4b9db32b6851a4a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  m_maxHealth: 100
+  m_AttackDamage: 0
   m_speed: 5
   m_virtualJoystick: {fileID: 0}
+  m_attackButton: {fileID: 0}
 --- !u!95 &7302537981319473335
 Animator:
   serializedVersion: 3

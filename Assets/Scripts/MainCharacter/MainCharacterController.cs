@@ -7,6 +7,8 @@ public class MainCharacterController : MonoBehaviour
     private int m_attackAnimationHash = 0;
     private bool m_isAttacking = false;
     private float m_health = 0.0f;
+
+    [SerializeField]
     private LayerMask m_layerMask;
 
     [SerializeField]
@@ -24,7 +26,7 @@ public class MainCharacterController : MonoBehaviour
 
     [SerializeField]
     private VirtualButton m_attackButton;
-
+    private bool m_hit = false;
     // Start is called before the first frame update
     private void Start()
     {
@@ -33,7 +35,7 @@ public class MainCharacterController : MonoBehaviour
             m_CharacterAnimator = GetComponent<Animator>();
         }
         m_health = m_maxHealth;
-        m_layerMask = LayerMask.GetMask("obstacle");
+       // m_layerMask = LayerMask.GetMask("obstacle");
 
         //hashing the animation from string to int for optimization
         m_attackAnimationHash = Animator.StringToHash("Base Layer.Attack");
@@ -85,14 +87,26 @@ public class MainCharacterController : MonoBehaviour
 
     private void AttackEnemy()
     {
-        RaycastHit2D[] hitArray = Physics2D.BoxCastAll(transform.position * new Vector2(3, 0), new Vector2(3, 1), 0, transform.forward , m_layerMask);
-        foreach(RaycastHit2D hit in hitArray)
+        //RaycastHit2D[] hitArray = Physics2D.BoxCastAll(transform.position, transform.localScale, 0, transform.right ,2.0f, m_layerMask);
+        // RaycastHit2D[] hitArray = Physics2D.CircleCastAll(transform.position, 1.0f, transform.right, 1.0f,m_layerMask);
+
+        //foreach(RaycastHit2D hit in hitArray){
+        //     Debug.Log(hit.transform.name);
+        //     if(hit.transform.CompareTag("enemy"))
+        //     {
+        //         hit.transform.GetComponent<EnemyActions>().TakeDamage(m_AttackDamage);
+        //     }
+        // }
+
+        RaycastHit2D[] hitArray = Physics2D.CircleCastAll(transform.position, 0.2f, transform.right, 1.0f, m_layerMask);
+       foreach (RaycastHit2D hit in hitArray)
         {
-            if(hit.transform.CompareTag("enemy"))
+            if (hit.transform.CompareTag("enemy"))
             {
                 hit.transform.GetComponent<EnemyActions>().TakeDamage(m_AttackDamage);
             }
         }
+
     }
 
     private void FlipObject()

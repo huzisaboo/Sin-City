@@ -768,7 +768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9a4cad7bdccd824cb81d9d3086596d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Waves: 050000000300000004000000
+  m_Waves: 040000000300000002000000
   m_waveStartTime: 2
   m_enemySpawnDuration: 2
 --- !u!4 &556502116
@@ -5412,11 +5412,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 390006826241657012, guid: 8f1e33a12bcbc9140a82e88aca29e681,
         type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 390006826241657012, guid: 8f1e33a12bcbc9140a82e88aca29e681,
-        type: 3}
       propertyPath: m_TagString
       value: obstacle
       objectReference: {fileID: 0}
@@ -5782,6 +5777,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143168852048301113, guid: f0c1cd392f6b5294080a568141f90579,
+        type: 3}
+      propertyPath: m_AttackDamage
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3143168852048301113, guid: f0c1cd392f6b5294080a568141f90579,
         type: 3}
