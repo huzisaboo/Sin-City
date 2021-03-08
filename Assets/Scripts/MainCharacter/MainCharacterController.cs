@@ -128,10 +128,10 @@ public class MainCharacterController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         m_health -= damage;
-        //m_CharacterAnimator.SetTrigger("isHit");
+        m_CharacterAnimator.SetTrigger("isHit");
         if (m_health <= 0.0f)
         {
-            Debug.Log("Dead");
+            m_CharacterAnimator.SetTrigger("die");
         }
     }
 }
