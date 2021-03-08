@@ -13,6 +13,9 @@ public class UIManager : Singleton<UIManager>
     [SerializeField]
     private GameObject m_gameOverPanel;
 
+    [SerializeField]
+    private Slider m_healthBarUI;
+
     private float m_waveUITimer;
 
 
@@ -36,6 +39,12 @@ public class UIManager : Singleton<UIManager>
             }
         }
         
+    }
+
+
+    public Slider GetHealthBarUI()
+    {
+        return m_healthBarUI;
     }
 
     public void SetWaveCountText(int p_waveCount)

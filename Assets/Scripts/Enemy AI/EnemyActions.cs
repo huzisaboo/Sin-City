@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyActions : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class EnemyActions : MonoBehaviour
     [Header("--Health--")]
     [SerializeField]
     private float m_maxHealth = 100.0f;
+
+    [SerializeField]
+    private Slider m_healthBarUI;
 
     [Header("--Attack--")]
     [SerializeField]
@@ -48,6 +52,7 @@ public class EnemyActions : MonoBehaviour
         m_applyDamageTime = m_attackDuration * 0.5f;
         m_mainCharacterController = m_target.GetComponent<MainCharacterController>();
         m_health = m_maxHealth;
+        m_healthBarUI.value = m_health;
     }
 
     // Update is called once per frame
@@ -142,8 +147,8 @@ public class EnemyActions : MonoBehaviour
     {
         m_animator.SetTrigger("isHit");
         m_health -= damage;
+        m_healthBarUI.value = m_health;
         m_steeringAgent.enabled = false;
-        Debug.Log(m_health);
         if (m_health <= 0.0f)
         {
             Die();

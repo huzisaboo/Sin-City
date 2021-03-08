@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class VirtualJoystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
@@ -16,6 +17,7 @@ public class VirtualJoystick : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     
     [SerializeField]
     private Transform m_joystick;
+
     private RectTransform m_joystickBgRect;
     // Start is called before the first frame update
     void Start()
@@ -45,6 +47,7 @@ public class VirtualJoystick : MonoBehaviour, IPointerDownHandler, IPointerUpHan
             m_input = m_direction;
         }
     }
+
 
     public void OnPointerDown(PointerEventData eventData)
     {

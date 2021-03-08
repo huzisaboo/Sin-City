@@ -1,5 +1,5 @@
-using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainCharacterController : MonoBehaviour
 {
@@ -9,11 +9,19 @@ public class MainCharacterController : MonoBehaviour
     private bool m_isAttacking = false;
     private float m_health = 0.0f;
 
+    [Header("--Health--")]
+    private Slider m_healthBarUI;
+
     [SerializeField]
-    private LayerMask m_layerMask;
+    private Gradient m_healthGradient;
+
+    private Image m_healthFill;
 
     [SerializeField]
     private float m_maxHealth = 100.0f;
+
+    [SerializeField]
+    private LayerMask m_layerMask;
 
     [SerializeField]
     private float m_AttackDamage = 0.0f;
@@ -27,7 +35,7 @@ public class MainCharacterController : MonoBehaviour
 
     [SerializeField]
     private VirtualButton m_attackButton;
-    private bool m_hit = false;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -35,8 +43,15 @@ public class MainCharacterController : MonoBehaviour
         {
             m_CharacterAnimator = GetComponent<Animator>();
         }
+        m_healthBarUI = UIManager.Instance.GetHealthBarUI();
         m_health = m_maxHealth;
-       // m_layerMask = LayerMask.GetMask("obstacle");
+        m_healthBarUI.value = m_health;
+
+        //get the health fill image which is the first child 
+        m_healthFill = m_healthBarUI.transform.GetChild(0).GetComponent<Image>();
+
+        //set the color of the health fill image to the max health value by evaluating the gradient
+        m_healthFill.color = m_healthGradient.Evaluate(m_healthBarUI.normalizedValue);
 
         //hashing the animation from string to int for optimization
         m_attackAnimationHash = Animator.StringToHash("Base Layer.Attack");
@@ -54,16 +69,6 @@ public class MainCharacterController : MonoBehaviour
             AttackEnemy();
             return;
         }
-        //only check for animation attack state when the main character is attacking
-        //if (m_isAttacking == true)
-        //{
-        //    if (m_CharacterAnimator.GetCurrentAnimatorStateInfo(0).fullPathHash == m_attackAnimationHash)
-        //    {
-        //        return;
-        //    }
-        //    m_isAttacking = false;
-        //   // m_virtualJoystick.setAttackButton(false);
-        //}
         else if ((!m_attackButton.IsPressed() && m_isAttacking))
         {
             m_isAttacking = false;
@@ -88,30 +93,18 @@ public class MainCharacterController : MonoBehaviour
 
     private void AttackEnemy()
     {
-        //RaycastHit2D[] hitArray = Physics2D.BoxCastAll(transform.position, transform.localScale, 0, transform.right ,2.0f, m_layerMask);
-        // RaycastHit2D[] hitArray = Physics2D.CircleCastAll(transform.position, 1.0f, transform.right, 1.0f,m_layerMask);
-
-        //foreach(RaycastHit2D hit in hitArray){
-        //     Debug.Log(hit.transform.name);
-        //     if(hit.transform.CompareTag("enemy"))
-        //     {
-        //         hit.transform.GetComponent<EnemyActions>().TakeDamage(m_AttackDamage);
-        //     }
-        // }
-
         RaycastHit2D[] hitArray = Physics2D.CircleCastAll(transform.position, 0.2f, transform.right, 1.0f, m_layerMask);
-       foreach (RaycastHit2D hit in hitArray)
+        foreach (RaycastHit2D hit in hitArray)
         {
             if (hit.transform.CompareTag("enemy"))
             {
                 EnemyActions enemy = hit.transform.GetComponent<EnemyActions>();
-                if(!enemy.IsDead())
+                if (!enemy.IsDead())
                 {
-                        enemy.TakeDamage(m_AttackDamage);
+                    enemy.TakeDamage(m_AttackDamage);
                 }
             }
         }
-
     }
 
     private void FlipObject()
@@ -129,14 +122,17 @@ public class MainCharacterController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         m_health -= damage;
+        m_healthBarUI.value = m_health;
+        
+        // change the color of the health fill image depending upon the health value 
+        m_healthFill.color = m_healthGradient.Evaluate(m_healthBarUI.normalizedValue);
         m_CharacterAnimator.SetTrigger("isHit");
         if (m_health <= 0.0f)
         {
             m_CharacterAnimator.SetTrigger("die");
             UIManager.Instance.EnableGameOverPanel(true);
+            //disable controls after player is dead
             GetComponent<MainCharacterController>().enabled = false;
-           // StartCoroutine(waitForSeconds(3.0f));
         }
     }
-
 }
