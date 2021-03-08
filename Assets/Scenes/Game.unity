@@ -157,7 +157,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11321761}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -466,7 +466,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155550956}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -922,7 +922,7 @@ PrefabInstance:
     - target: {fileID: 390006826241657012, guid: 8f1e33a12bcbc9140a82e88aca29e681,
         type: 3}
       propertyPath: m_TagString
-      value: obstacle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7399599010874832093, guid: 8f1e33a12bcbc9140a82e88aca29e681,
         type: 3}
@@ -1021,7 +1021,7 @@ MonoBehaviour:
   - {fileID: 1207325584866395451, guid: f63a6b25cc340424d89a968d1638e3e3, type: 3}
   - {fileID: 8047574604617608872, guid: 1e2f28c56421dec40881a229a4ae04b9, type: 3}
   m_spawnPoints:
-  - {fileID: 1874112086}
+  - {fileID: 1427577289}
   - {fileID: 1427577289}
 --- !u!114 &556502115
 MonoBehaviour:
@@ -4394,7 +4394,7 @@ PrefabInstance:
     - target: {fileID: 390006826241657012, guid: 8f1e33a12bcbc9140a82e88aca29e681,
         type: 3}
       propertyPath: m_TagString
-      value: obstacle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7399599010874832093, guid: 8f1e33a12bcbc9140a82e88aca29e681,
         type: 3}
@@ -5657,6 +5657,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6702337029471090350, guid: b6462c98fb2d66f41a38e838b5832f68,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.03
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6462c98fb2d66f41a38e838b5832f68, type: 3}
 --- !u!4 &1427577288 stripped
@@ -5785,7 +5790,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1742337117}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -5901,6 +5906,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2840384611264890400, guid: 24795acf25ad6484e96d9fd7725e1b5f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.07
+      objectReference: {fileID: 0}
     - target: {fileID: 4138457763276866071, guid: 24795acf25ad6484e96d9fd7725e1b5f,
         type: 3}
       propertyPath: m_Name
@@ -5929,12 +5939,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1874112084}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1874112086 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2840384611264890400, guid: 24795acf25ad6484e96d9fd7725e1b5f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1874112084}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1878298904
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5950,7 +5954,7 @@ PrefabInstance:
     - target: {fileID: 390006826241657012, guid: 8f1e33a12bcbc9140a82e88aca29e681,
         type: 3}
       propertyPath: m_TagString
-      value: obstacle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7399599010874832093, guid: 8f1e33a12bcbc9140a82e88aca29e681,
         type: 3}
@@ -6204,7 +6208,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957705636}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -6423,7 +6427,7 @@ PrefabInstance:
     - target: {fileID: 390006826241657012, guid: 8f1e33a12bcbc9140a82e88aca29e681,
         type: 3}
       propertyPath: m_TagString
-      value: obstacle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7399599010874832093, guid: 8f1e33a12bcbc9140a82e88aca29e681,
         type: 3}
