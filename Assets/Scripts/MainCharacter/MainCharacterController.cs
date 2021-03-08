@@ -141,5 +141,7 @@ public class MainCharacterController : MonoBehaviour
     private IEnumerator waitForSeconds(float seconds)
     {
         yield return new WaitForSeconds(seconds);
+
+
     }
 }

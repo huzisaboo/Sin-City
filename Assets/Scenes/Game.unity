@@ -5830,6 +5830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_waveCountText: {fileID: 1416478258}
   m_waveUIDuration: 2
+  m_gameOverPanel: {fileID: 962221495}
 --- !u!4 &1795883472
 Transform:
   m_ObjectHideFlags: 0
@@ -6551,3 +6552,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_winGameText: Congratulations! You Defeated Everyone!  You are the king of Sin
+    City!
+  m_lostGameText: ' You Died! Better Luck Next Time!'

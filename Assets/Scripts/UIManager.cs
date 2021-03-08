@@ -9,7 +9,12 @@ public class UIManager : Singleton<UIManager>
     private Text m_waveCountText;
     [SerializeField]
     private float m_waveUIDuration = 2.0f;
+
+    [SerializeField]
+    private GameObject m_gameOverPanel;
+
     private float m_waveUITimer;
+
 
     private void Start()
     {
@@ -44,5 +49,10 @@ public class UIManager : Singleton<UIManager>
             m_waveCountText.text = "Wave " + p_waveCount.ToString();
         }
         m_waveCountText.enabled = true;
+    }
+
+    public void EnableGameOverPanel(bool p_value)
+    {
+        m_gameOverPanel.SetActive(p_value);
     }
 }

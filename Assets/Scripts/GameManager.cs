@@ -10,7 +10,14 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField]
     private UnityEvent m_waveEndEvent;
-    
+
+    [SerializeField]
+    private string m_winGameText;
+
+    [SerializeField]
+    private string m_lostGameText;
+
+
     private List<SteeringAgent> enemies = new List<SteeringAgent>();
     private int m_killCount = 0;
 
