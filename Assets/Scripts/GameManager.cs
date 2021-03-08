@@ -71,7 +71,7 @@ public class GameManager : Singleton<GameManager>
 
     public void EndGame()
     {
-        Debug.Log("Game Over");
+        Application.Quit();
     }
 
     public int GetKillCount()

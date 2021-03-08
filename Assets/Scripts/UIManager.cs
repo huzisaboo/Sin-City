@@ -53,6 +53,13 @@ public class UIManager : Singleton<UIManager>
 
     public void EnableGameOverPanel(bool p_value)
     {
-        m_gameOverPanel.SetActive(p_value);
+        StartCoroutine(waitForSeconds(2.0f));
+    }
+
+    private IEnumerator waitForSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+
+        m_gameOverPanel.SetActive(true);
     }
 }

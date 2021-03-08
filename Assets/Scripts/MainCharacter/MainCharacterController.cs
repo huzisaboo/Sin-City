@@ -133,15 +133,10 @@ public class MainCharacterController : MonoBehaviour
         if (m_health <= 0.0f)
         {
             m_CharacterAnimator.SetTrigger("die");
+            UIManager.Instance.EnableGameOverPanel(true);
             GetComponent<MainCharacterController>().enabled = false;
-            StartCoroutine(waitForSeconds(3.0f));
+           // StartCoroutine(waitForSeconds(3.0f));
         }
     }
 
-    private IEnumerator waitForSeconds(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-
-
-    }
 }

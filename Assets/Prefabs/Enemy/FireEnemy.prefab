@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_kill: 0
   m_maxHealth: 100
-  m_AttackDamage: 10
+  m_AttackDamage: 40
   m_attackDuration: 0.6
   m_attackCooldown: 3
   m_stoppingDistance: 1
