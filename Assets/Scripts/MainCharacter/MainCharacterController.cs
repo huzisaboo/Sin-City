@@ -103,7 +103,11 @@ public class MainCharacterController : MonoBehaviour
         {
             if (hit.transform.CompareTag("enemy"))
             {
-                hit.transform.GetComponent<EnemyActions>().TakeDamage(m_AttackDamage);
+                EnemyActions enemy = hit.transform.GetComponent<EnemyActions>();
+                if(!enemy.IsDead())
+                {
+                        enemy.TakeDamage(m_AttackDamage);
+                }
             }
         }
 
@@ -127,7 +131,7 @@ public class MainCharacterController : MonoBehaviour
         //m_CharacterAnimator.SetTrigger("isHit");
         if (m_health <= 0.0f)
         {
-           // Debug.Log("Dead");
+            Debug.Log("Dead");
         }
     }
 }

@@ -48,6 +48,7 @@ public class EnemyWaves : MonoBehaviour
 
     public void StartWave()
     {
+        GameManager.Instance.ClearDeadEnemies();
         Debug.Log("New Wave Starts");
         m_waveStarted = true;
         m_waveEnemyCount = m_Waves[0];

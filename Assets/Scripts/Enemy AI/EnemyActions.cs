@@ -17,7 +17,7 @@ public class EnemyActions : MonoBehaviour
     private float m_directionDotProduct;
     private float m_applyDamageTime = 0.0f;
     private float m_health = 0.0f;
-
+    private bool isDead = false;
     [Header("--Health--")]
     [SerializeField]
     private float m_maxHealth = 100.0f;
@@ -53,12 +53,15 @@ public class EnemyActions : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (m_isAttacking == true)
+        if(!isDead)
         {
-            AttackTimeLogic();
-            return;
+            if (m_isAttacking == true)
+            {
+                AttackTimeLogic();
+                return;
+            }
+            AttackPlayer();
         }
-        AttackPlayer();
     }
 
     private void AttackTimeLogic()
@@ -124,21 +127,31 @@ public class EnemyActions : MonoBehaviour
 
     private void Die()
     {
-        GameManager.Instance.RemoveEnemy(m_steeringAgent);
-        if (GameManager.Instance.GetEnemyList().Count == 0)
+        m_animator.SetTrigger("Dead");
+        m_steeringAgent.enabled = false;
+        transform.GetChild(0).gameObject.SetActive(false);
+        isDead = true;
+        GameManager.Instance.SetKillCount(GameManager.Instance.GetKillCount() + 1);
+        if (GameManager.Instance.GetKillCount() == GameManager.Instance.GetEnemyList().Count)
         {
             GameManager.Instance.EndWave();
         }
-        Destroy(this.gameObject);
     }
 
     public void TakeDamage(float damage)
     {
+        m_animator.SetTrigger("isHit");
         m_health -= damage;
+        m_steeringAgent.enabled = false;
         Debug.Log(m_health);
         if (m_health <= 0.0f)
         {
             Die();
         }
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
     }
 }

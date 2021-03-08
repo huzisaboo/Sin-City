@@ -12,7 +12,7 @@ public class GameManager : Singleton<GameManager>
     private UnityEvent m_waveEndEvent;
     
     private List<SteeringAgent> enemies = new List<SteeringAgent>();
-
+    private int m_killCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -38,10 +38,16 @@ public class GameManager : Singleton<GameManager>
 
     public void RemoveEnemy(SteeringAgent p_enemy)
     {
-        if(enemies.Contains(p_enemy))
+        Destroy(p_enemy.gameObject);
+    }
+
+    public void ClearDeadEnemies()
+    {
+        foreach(SteeringAgent enemy in enemies)
         {
-            enemies.Remove(p_enemy);
+            RemoveEnemy(enemy);
         }
+        enemies.Clear();
     }
 
     public List<SteeringAgent> GetEnemyList()
@@ -51,6 +57,8 @@ public class GameManager : Singleton<GameManager>
 
     public void EndWave()
     {
+        
+        m_killCount = 0;
         m_waveEndEvent.Invoke();
     }
 
@@ -58,4 +66,15 @@ public class GameManager : Singleton<GameManager>
     {
         Debug.Log("Game Over");
     }
+
+    public int GetKillCount()
+    {
+        return m_killCount;
+    }
+
+    public void SetKillCount(int p_killCount)
+    {
+        m_killCount = p_killCount;
+    }
+
 }
