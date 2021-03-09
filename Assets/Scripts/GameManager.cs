@@ -17,7 +17,6 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private string m_lostGameText;
 
-
     private List<SteeringAgent> enemies = new List<SteeringAgent>();
     private int m_killCount = 0;
 
@@ -65,7 +64,7 @@ public class GameManager : Singleton<GameManager>
     public void EndWave()
     {
         
-        m_killCount = 0;
+       // m_killCount = 0;
         m_waveEndEvent.Invoke();
     }
 
@@ -82,6 +81,7 @@ public class GameManager : Singleton<GameManager>
     public void SetKillCount(int p_killCount)
     {
         m_killCount = p_killCount;
+        UIManager.instance.SetScoreText(m_killCount);
     }
 
 }

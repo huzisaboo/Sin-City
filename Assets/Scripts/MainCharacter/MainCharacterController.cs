@@ -123,9 +123,9 @@ public class MainCharacterController : MonoBehaviour
     {
         m_health -= damage;
         m_healthBarUI.value = m_health;
-        
         // change the color of the health fill image depending upon the health value 
         m_healthFill.color = m_healthGradient.Evaluate(m_healthBarUI.normalizedValue);
+        
         m_CharacterAnimator.SetTrigger("isHit");
         if (m_health <= 0.0f)
         {
@@ -134,5 +134,13 @@ public class MainCharacterController : MonoBehaviour
             //disable controls after player is dead
             GetComponent<MainCharacterController>().enabled = false;
         }
+    }
+
+    public void ResetHealth(int health)
+    {
+        m_health = health;
+        m_healthBarUI.value = m_health;
+        // change the color of the health fill image depending upon the health value 
+        m_healthFill.color = m_healthGradient.Evaluate(m_healthBarUI.normalizedValue);
     }
 }

@@ -7,6 +7,7 @@ public class UIManager : Singleton<UIManager>
 {
     [SerializeField]
     private Text m_waveCountText;
+
     [SerializeField]
     private float m_waveUIDuration = 2.0f;
 
@@ -15,6 +16,9 @@ public class UIManager : Singleton<UIManager>
 
     [SerializeField]
     private Slider m_healthBarUI;
+
+    [SerializeField]
+    private Text m_score;
 
     private float m_waveUITimer;
 
@@ -25,6 +29,8 @@ public class UIManager : Singleton<UIManager>
         {
             m_waveCountText.enabled = false;
         }
+
+        SetScoreText(0);
     }
     private void Update()
     {
@@ -39,6 +45,11 @@ public class UIManager : Singleton<UIManager>
             }
         }
         
+    }
+
+    public void SetScoreText(int score)
+    {
+        m_score.text = "Score: " + score;
     }
 
 
