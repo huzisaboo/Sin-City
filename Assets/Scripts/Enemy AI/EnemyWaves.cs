@@ -89,7 +89,7 @@ public class EnemyWaves : MonoBehaviour
         m_waveTimer = 0.0f;
         if (m_Waves.Count == 0)
         {
-            GameManager.Instance.EndGame();
+            GameManager.Instance.EndGame(true);
         }
         if(m_isBossWave == true)
         {

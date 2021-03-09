@@ -13,6 +13,8 @@ public class UIManager : Singleton<UIManager>
 
     [SerializeField]
     private GameObject m_gameOverPanel;
+    [SerializeField]
+    private Text m_winLoseText;
 
     [SerializeField]
     private Slider m_healthBarUI;
@@ -71,8 +73,9 @@ public class UIManager : Singleton<UIManager>
         m_waveCountText.enabled = true;
     }
 
-    public void EnableGameOverPanel(bool p_value)
+    public void EnableGameOverPanel(bool p_value,string p_winloseText)
     {
+        m_winLoseText.text = p_winloseText;
         StartCoroutine(waitForSeconds(2.0f));
     }
 
