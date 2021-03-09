@@ -39,12 +39,8 @@ public class EnemySpawner : MonoBehaviour
 
     }
 
-    public void SpawnBossEnemy(int bossCount)
+    public void SpawnBossEnemy()
     {
-
-        for(int i = 0; i <= bossCount; i++)
-        {
            Instantiate(m_bossEnemyPrefab.gameObject, m_bossSpawnPoint.position * Random.Range(10,20), m_bossSpawnPoint.rotation);
-        }
     }
 }
