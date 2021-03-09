@@ -952,6 +952,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 3643357381537081841, guid: 8f1e33a12bcbc9140a82e88aca29e681,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7399599010874832093, guid: 8f1e33a12bcbc9140a82e88aca29e681,
         type: 3}
       propertyPath: m_RootOrder
@@ -1066,7 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9a4cad7bdccd824cb81d9d3086596d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Waves: 01000000010000000100000001000000
+  m_Waves: 01000000010000000100000002000000
   m_waveStartTime: 2
   m_enemySpawnDuration: 2
   m_spawnBossWaveNumber: 2
@@ -1390,7 +1395,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -4166,6 +4171,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7397009955477896109, guid: e17789ff58e8a374ea37f1bca1ab7fad,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e17789ff58e8a374ea37f1bca1ab7fad, type: 3}
 --- !u!4 &712597952 stripped
@@ -4570,7 +4580,7 @@ PrefabInstance:
     - target: {fileID: 4658427701221905251, guid: fbbb9220c4d0c334d81da8f28c5a6de6,
         type: 3}
       propertyPath: m_joystickOuterBoundOffset
-      value: 60
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5508407397955774736, guid: fbbb9220c4d0c334d81da8f28c5a6de6,
         type: 3}
@@ -4646,6 +4656,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3643357381537081841, guid: 8f1e33a12bcbc9140a82e88aca29e681,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7399599010874832093, guid: 8f1e33a12bcbc9140a82e88aca29e681,
         type: 3}
@@ -5904,6 +5919,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.03
       objectReference: {fileID: 0}
+    - target: {fileID: 7644738170966862773, guid: b6462c98fb2d66f41a38e838b5832f68,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6462c98fb2d66f41a38e838b5832f68, type: 3}
 --- !u!4 &1427577288 stripped
@@ -6324,6 +6344,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 674768375}
     m_Modifications:
+    - target: {fileID: 140802423323087581, guid: 24795acf25ad6484e96d9fd7725e1b5f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2019199734322742844, guid: 24795acf25ad6484e96d9fd7725e1b5f,
         type: 3}
       propertyPath: m_RootOrder
@@ -6450,6 +6475,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 3643357381537081841, guid: 8f1e33a12bcbc9140a82e88aca29e681,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7399599010874832093, guid: 8f1e33a12bcbc9140a82e88aca29e681,
         type: 3}
       propertyPath: m_RootOrder
@@ -6535,6 +6565,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228272892262863113, guid: 4d808eb908817ed4b909f4c2cc60e976,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7874125934160118464, guid: 4d808eb908817ed4b909f4c2cc60e976,
         type: 3}
@@ -7099,6 +7134,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3643357381537081841, guid: 8f1e33a12bcbc9140a82e88aca29e681,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7399599010874832093, guid: 8f1e33a12bcbc9140a82e88aca29e681,
         type: 3}

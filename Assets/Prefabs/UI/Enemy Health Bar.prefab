@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6971000514990158457}
   - component: {fileID: 3034919224397391825}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Enemy Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.245, y: 0.3963}
+  m_AnchoredPosition: {x: -0.24499512, y: 0.39630127}
   m_SizeDelta: {x: 1.2376, y: 0.2652}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6719799276024504428
@@ -82,7 +82,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3034919224397391825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +245,16 @@ PrefabInstance:
     - target: {fileID: 5548486900417686777, guid: ca40550852507f74d81fb236d2b16b56,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5648877250107835711, guid: ca40550852507f74d81fb236d2b16b56,
+        type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5648877250107835711, guid: ca40550852507f74d81fb236d2b16b56,
+        type: 3}
+      propertyPath: m_MaxValue
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6750671640383335341, guid: ca40550852507f74d81fb236d2b16b56,
