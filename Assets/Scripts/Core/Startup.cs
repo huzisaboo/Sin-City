@@ -7,7 +7,6 @@ public class Startup : MonoBehaviour
 {
 	public bool loadScene = true;
 	public SceneReference startupScene;
-
 	private void Start()
 	{
 		// Set system parameters
@@ -38,13 +37,14 @@ public class Startup : MonoBehaviour
 		yield return new WaitForSeconds(1);
 		SceneLoader.Instance.onSceneLoadedEvent.AddListener(SceneLoadedCallback);
 		SceneLoader.Instance.LoadScene(startupScene, true);
+		
 	}
 
 	void SceneLoadedCallback(List<string> scenesLoaded)
 	{
-		SceneLoader.Instance.SetActiveScene(startupScene);
-		SceneLoader.Instance.onSceneLoadedEvent.RemoveListener(SceneLoadedCallback);
+		SceneLoader.Instance.SetActiveScene(scenesLoaded[0]);
 		MenuManager.Instance.hideMenu(MenuManager.Instance.loadingMenuClassifier);
+		SceneLoader.Instance.onSceneLoadedEvent.RemoveListener(SceneLoadedCallback);
 
 	}
 }

@@ -26,7 +26,5 @@ public class GameOverMenu : Menu
 	public void onPlayAgain()
     {
 		SceneLoader.Instance.ReloadActiveScene();
-    }
-
-	
+    }	
 }

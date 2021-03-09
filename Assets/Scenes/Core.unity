@@ -805,6 +805,7 @@ MonoBehaviour:
     sceneAsset: {fileID: 102900000, guid: baed29cdf751d1c4ebd0658640902a40, type: 3}
     scenePath: Assets/Scenes/MainMenu.unity
     sceneName: MainMenu
+  mainMenuClassifier: {fileID: 11400000, guid: 8b1fc7de1bfceb24da7d3aa13834eeba, type: 2}
 --- !u!1 &1634247447
 GameObject:
   m_ObjectHideFlags: 0

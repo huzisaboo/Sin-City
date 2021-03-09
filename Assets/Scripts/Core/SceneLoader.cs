@@ -19,9 +19,9 @@ public class SceneLoader : Singleton<SceneLoader>
 	// When loading just add a flag for persistence. If true don't add to the loadedScenes
 	// Only remove the scenes when you unload
 
-	public void LoadScene(string scene, bool showLoadingScreen = true)
+	public void LoadScene(string scene, bool raiseEvent, bool showLoadingScreen = true)
 	{
-		StartCoroutine(loadScene(scene, showLoadingScreen, true));
+		StartCoroutine(loadScene(scene, showLoadingScreen, raiseEvent));
 	}
 
 	public void LoadScenes(List<string> scenes, bool showLoadingScreen = true)
@@ -161,7 +161,7 @@ public class SceneLoader : Singleton<SceneLoader>
 
 	public void SetActiveScene(string scene)
 	{
-		SceneManager.SetActiveScene(SceneManager.GetSceneByName(scene));
+		SceneManager.SetActiveScene(SceneManager.GetSceneByPath(scene));
 	}
 
 	public string GetActiveSceneName()

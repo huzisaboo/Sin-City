@@ -46,7 +46,6 @@ public class Menu : MonoBehaviour
 	{
 		// Need to add this to the Menu Manager
 		MenuManager.Instance.addMenu(this);
-
 		animator = GetComponent<Animator>();
 		if (resetPosition == true)
 		{

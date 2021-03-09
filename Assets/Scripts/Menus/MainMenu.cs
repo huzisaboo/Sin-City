@@ -6,11 +6,13 @@ public class MainMenu : Menu
 {
 	public SceneReference sceneToLoad;
 
-	public void onLoadScene()
+
+    public void onLoadScene()
 	{
-		SceneLoader.Instance.onSceneLoadedEvent.AddListener(SceneLoadedCallback);
+		SceneLoader.Instance.onSceneLoadedEvent.AddListener(GameSceneLoadedCallback);
 		SceneLoader.Instance.LoadScene(sceneToLoad, true);
-		MenuManager.Instance.hideMenu(menuClassifier);
+		//Debug.Log(SceneLoader.Instance.onSceneLoadedEvent.GetPersistentEventCount());
+		
 	}
 
 	public void onQuitGame()
@@ -18,9 +20,10 @@ public class MainMenu : Menu
 		Application.Quit();
     }
 
-	private void SceneLoadedCallback(List<string> p_scenesLoaded)
+	private void GameSceneLoadedCallback(List<string> p_scenesLoaded)
     {
-		SceneLoader.Instance.SetActiveScene(sceneToLoad);
-		SceneLoader.Instance.onSceneLoadedEvent.RemoveListener(SceneLoadedCallback);
+		MenuManager.Instance.hideMenu(menuClassifier);
+		SceneLoader.Instance.SetActiveScene(p_scenesLoaded[0]);
+		SceneLoader.Instance.onSceneLoadedEvent.RemoveListener(GameSceneLoadedCallback);
     }
 }
