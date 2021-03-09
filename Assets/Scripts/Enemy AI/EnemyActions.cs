@@ -54,6 +54,7 @@ public class EnemyActions : MonoBehaviour
         m_mainCharacterController = m_target.GetComponent<MainCharacterController>();
         m_health = m_maxHealth;
         m_healthBarUI.value = m_health;
+        Physics2D.IgnoreCollision(m_target.GetComponent<Collider2D>(),GetComponent<Collider2D>());
     }
 
     // Update is called once per frame
