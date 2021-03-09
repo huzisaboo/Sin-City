@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   summingMethod: 0
   mass: 1
-  maxSpeed: 1
+  maxSpeed: 1.75
   maxForce: 10
   velocity: {x: 0, y: 0}
   angularDampeningTime: 5
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_AttackDamage: 10
   m_attackDuration: 0.6
   m_attackCooldown: 3
-  m_stoppingDistance: 2
+  m_stoppingDistance: 1
   m_levelThreshold: 0.85
 --- !u!70 &6328444777569383683
 CapsuleCollider2D:
