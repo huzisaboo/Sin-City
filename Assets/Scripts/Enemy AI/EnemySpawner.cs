@@ -41,6 +41,6 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnBossEnemy()
     {
-           Instantiate(m_bossEnemyPrefab.gameObject, m_bossSpawnPoint.position * Random.Range(10,20), m_bossSpawnPoint.rotation);
+           Instantiate(m_bossEnemyPrefab.gameObject, m_bossSpawnPoint.position, m_bossSpawnPoint.rotation);
     }
 }
