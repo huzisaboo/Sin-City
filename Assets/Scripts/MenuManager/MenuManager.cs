@@ -14,10 +14,14 @@ public class MenuManager : Singleton<MenuManager>
 		{
 			menuList.Add(menu.menuClassifier.menuName, menu);
 		}
-		else
+		else if(!menuList.ContainsValue(menu))
 		{
+			menuList[menu.menuClassifier.menuName] = menu;
+		}
+		else
+        {
 			// Assert?
-			//Debug.LogError("Multiple menus being added: " + menu.menuClassifier.menuName);
+			Debug.LogError("Multiple menus being added: " + menu.menuClassifier.menuName);
 		}
 	}
 
