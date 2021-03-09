@@ -42,7 +42,9 @@ public class Startup : MonoBehaviour
 
 	void SceneLoadedCallback(List<string> scenesLoaded)
 	{
+		SceneLoader.Instance.SetActiveScene(startupScene);
 		SceneLoader.Instance.onSceneLoadedEvent.RemoveListener(SceneLoadedCallback);
 		MenuManager.Instance.hideMenu(MenuManager.Instance.loadingMenuClassifier);
+
 	}
 }

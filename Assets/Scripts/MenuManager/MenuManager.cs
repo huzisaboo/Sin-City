@@ -17,7 +17,7 @@ public class MenuManager : Singleton<MenuManager>
 		else
 		{
 			// Assert?
-			Debug.LogError("Multiple menus being added: " + menu.menuClassifier.menuName);
+			//Debug.LogError("Multiple menus being added: " + menu.menuClassifier.menuName);
 		}
 	}
 

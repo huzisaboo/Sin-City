@@ -19,6 +19,7 @@ public class EnemyActions : MonoBehaviour
     private float m_applyDamageTime = 0.0f;
     private float m_health = 0.0f;
     private bool isDead = false;
+
     [Header("--Health--")]
     [SerializeField]
     private float m_maxHealth = 100.0f;
@@ -58,24 +59,27 @@ public class EnemyActions : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if(!isDead)
+        if (!isDead)
         {
-            if (m_isAttacking == true)
+            if(!IsGameOver())
             {
-                AttackTimeLogic();
-                return;
+                if (m_isAttacking == true)
+                {
+                    AttackTimeLogic();
+                    return;
+                }
+                AttackPlayer();
             }
-            AttackPlayer();
         }
     }
 
     private void AttackTimeLogic()
     {
         m_attackTimer += Time.deltaTime;
-        if (m_attackTimer == (m_applyDamageTime * 0.5f))
-        {
-            Debug.Log("Damage");
-        }
+        //if (m_attackTimer == (m_applyDamageTime * 0.5f))
+        //{
+        //    Debug.Log("Damage");
+        //}
         if (m_attackTimer > m_attackDuration)
         {
             SetAttackAnim(false);
@@ -93,6 +97,7 @@ public class EnemyActions : MonoBehaviour
             m_distance = Vector2.Distance(transform.position, m_target.position);
             m_direction = (m_target.position - transform.position).normalized;
             m_directionDotProduct = Vector2.Dot(transform.right, m_direction);
+
             if ((m_distance <= m_stoppingDistance) && !m_isAttacking)
             {
                 if (m_directionDotProduct <= -m_levelThreshold)
@@ -158,5 +163,18 @@ public class EnemyActions : MonoBehaviour
     public bool IsDead()
     {
         return isDead;
+    }
+
+    private bool IsGameOver()
+    {
+        if(GameManager.Instance.IsGameOver())
+        {
+            m_steeringAgent.enabled = false;
+            m_animator.SetFloat("Speed", 0.0f);
+            m_animator.SetTrigger("Idle");
+            isDead = true;
+            return true;
+        }
+        return false;
     }
 }

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,14 +8,24 @@ public class EnemyWaves : MonoBehaviour
 
     [SerializeField]
     private float m_waveStartTime = 2.0f;   //Defines the cooldown time before a new wave begins
+
     [SerializeField]
     private float m_enemySpawnDuration;
+
+    [Header("Spawn Boss Enemy every # wave")]
+    [SerializeField]
+    private int m_spawnBossWaveNumber;
+
     private float m_enemyTimer;
     private float m_waveTimer;
     private EnemySpawner m_enemySpawner;
     private bool m_waveStarted = false;
+    private bool m_isBossWave = false;
     private int m_waveCounter = 0;
-    private int m_waveEnemyCount;
+    private int m_waveEnemyCount = 0;
+    private int m_numberOfBossEnemyToSpawn = 0;
+
+    private
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +33,7 @@ public class EnemyWaves : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         m_enemyTimer += Time.deltaTime;
         m_waveTimer += Time.deltaTime;
@@ -35,25 +44,38 @@ public class EnemyWaves : MonoBehaviour
         }
         if (m_waveStarted)
         {
-            if (m_enemyTimer >= m_enemySpawnDuration && m_waveEnemyCount > 0)
+            if (m_enemyTimer >= m_enemySpawnDuration )
             {
-                m_enemySpawner.SpawnEnemy();
-                m_enemyTimer = 0.0f;
-                m_waveEnemyCount--;
+                if(m_isBossWave == true & m_numberOfBossEnemyToSpawn > 0)
+                {
+                    m_enemySpawner.SpawnBossEnemy(m_numberOfBossEnemyToSpawn); //resulting quotient will give the number of boss enemies to spawn
+                    m_numberOfBossEnemyToSpawn--;
+                }
+                if(m_isBossWave == false && m_waveEnemyCount > 0)
+                {
+                    m_enemySpawner.SpawnEnemy();
+                    m_enemyTimer = 0.0f;
+                    m_waveEnemyCount--;
+                }
             }
-
         }
-
     }
 
     public void StartWave()
     {
         GameManager.Instance.ClearDeadEnemies();
-        Debug.Log("New Wave Starts");
+        //Reset Health Every wave
+        GameManager.Instance.GetPlayer().GetComponent<MainCharacterController>().ResetHealth(100);
         m_waveStarted = true;
         m_waveEnemyCount = m_Waves[0];
         m_waveCounter++;
-        if(m_Waves.Count == 1)
+        //Spawn Boss Enemy if it the # wave
+        if (m_waveCounter % m_spawnBossWaveNumber == 0)
+        {
+            m_numberOfBossEnemyToSpawn = m_waveCounter / m_spawnBossWaveNumber;
+            m_isBossWave = true;
+        }
+        if (m_Waves.Count == 1)
         {
             m_waveCounter = 0;
         }
@@ -65,12 +87,13 @@ public class EnemyWaves : MonoBehaviour
         m_Waves.RemoveAt(0);
         m_waveStarted = false;
         m_waveTimer = 0.0f;
-
-        Debug.Log("This Wave Ends");
-
-        if(m_Waves.Count == 0)
+        if (m_Waves.Count == 0)
         {
-            GameManager.Instance.EndGame();
+            GameManager.Instance.EndGame(true);
+        }
+        if(m_isBossWave == true)
+        {
+            m_isBossWave = false;
         }
     }
 }

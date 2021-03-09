@@ -17,9 +17,10 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private string m_lostGameText;
 
-
     private List<SteeringAgent> enemies = new List<SteeringAgent>();
     private int m_killCount = 0;
+    private int m_score = 0;
+    private bool m_gameOver = false;
 
     // Start is called before the first frame update
     void Start()
@@ -69,9 +70,17 @@ public class GameManager : Singleton<GameManager>
         m_waveEndEvent.Invoke();
     }
 
-    public void EndGame()
+    public void EndGame(bool p_win)
     {
-        Application.Quit();
+        if(p_win)
+        {
+            UIManager.Instance.EnableGameOverPanel(true,m_winGameText);
+        }
+        else
+        {
+            UIManager.Instance.EnableGameOverPanel(true, m_lostGameText);
+        }
+        m_gameOver = true;
     }
 
     public int GetKillCount()
@@ -82,6 +91,13 @@ public class GameManager : Singleton<GameManager>
     public void SetKillCount(int p_killCount)
     {
         m_killCount = p_killCount;
+        m_score = p_killCount;
+        UIManager.instance.SetScoreText(m_score);
+    }
+
+    public bool IsGameOver()
+    {
+        return m_gameOver;
     }
 
 }

@@ -7,14 +7,20 @@ public class UIManager : Singleton<UIManager>
 {
     [SerializeField]
     private Text m_waveCountText;
+
     [SerializeField]
     private float m_waveUIDuration = 2.0f;
 
     [SerializeField]
     private GameObject m_gameOverPanel;
+    [SerializeField]
+    private Text m_winLoseText;
 
     [SerializeField]
     private Slider m_healthBarUI;
+
+    [SerializeField]
+    private Text m_score;
 
     private float m_waveUITimer;
 
@@ -25,6 +31,8 @@ public class UIManager : Singleton<UIManager>
         {
             m_waveCountText.enabled = false;
         }
+
+        SetScoreText(0);
     }
     private void Update()
     {
@@ -39,6 +47,11 @@ public class UIManager : Singleton<UIManager>
             }
         }
         
+    }
+
+    public void SetScoreText(int score)
+    {
+        m_score.text = "Score: " + score;
     }
 
 
@@ -60,8 +73,9 @@ public class UIManager : Singleton<UIManager>
         m_waveCountText.enabled = true;
     }
 
-    public void EnableGameOverPanel(bool p_value)
+    public void EnableGameOverPanel(bool p_value,string p_winloseText)
     {
+        m_winLoseText.text = p_winloseText;
         StartCoroutine(waitForSeconds(2.0f));
     }
 
