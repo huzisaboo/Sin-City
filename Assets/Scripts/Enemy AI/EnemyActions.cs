@@ -10,6 +10,7 @@ public class EnemyActions : MonoBehaviour
     private Transform m_target;
     private SpriteRenderer m_spriteRenderer;
     private MainCharacterController m_mainCharacterController;
+    private AudioSource m_audioSource;
     private Vector2 m_direction;
     private bool m_isAttacking = false;
     private float m_attackCooldownTimer = 0.0f;
@@ -54,6 +55,8 @@ public class EnemyActions : MonoBehaviour
         m_mainCharacterController = m_target.GetComponent<MainCharacterController>();
         m_health = m_maxHealth;
         m_healthBarUI.value = m_health;
+        Physics2D.IgnoreCollision(m_target.GetComponent<Collider2D>(),GetComponent<Collider2D>());
+        m_audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -109,6 +112,7 @@ public class EnemyActions : MonoBehaviour
                     }
                     m_mainCharacterController.TakeDamage(m_AttackDamage);
                     SetAttackAnim(true);
+                    m_audioSource.Play();
                 }
                 else if (m_directionDotProduct >= m_levelThreshold)
                 {
@@ -119,6 +123,7 @@ public class EnemyActions : MonoBehaviour
                     }
                     m_mainCharacterController.TakeDamage(m_AttackDamage);
                     SetAttackAnim(true);
+                    m_audioSource.Play();
                 }
             }
             else if (m_distance > m_stoppingDistance && m_isAttacking)
