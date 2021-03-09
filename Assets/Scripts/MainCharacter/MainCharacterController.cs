@@ -130,7 +130,7 @@ public class MainCharacterController : MonoBehaviour
         if (m_health <= 0.0f)
         {
             m_CharacterAnimator.SetTrigger("die");
-            UIManager.Instance.EnableGameOverPanel(true);
+            GameManager.Instance.EndGame(false);
             //disable controls after player is dead
             GetComponent<MainCharacterController>().enabled = false;
         }

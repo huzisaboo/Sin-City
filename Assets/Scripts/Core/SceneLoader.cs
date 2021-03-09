@@ -87,12 +87,6 @@ public class SceneLoader : Singleton<SceneLoader>
 		}
 	}
 
-	// 4 Methods:
-	//	- Unload single scene
-	//	- Unload list of scenes
-	//		- Support to unload multiple (Coroutine)
-	//	- Actual Unload of scenes.
-
 	public void UnloadScene(string scene)
 	{
 		StartCoroutine(unloadScene(scene));
@@ -105,7 +99,7 @@ public class SceneLoader : Singleton<SceneLoader>
 
 	IEnumerator unloadScenes(List<string> scenes)
 	{
-		foreach(string scene in scenes)
+		foreach (string scene in scenes)
 		{
 			yield return StartCoroutine(unloadScene(scene));
 		}
@@ -117,7 +111,7 @@ public class SceneLoader : Singleton<SceneLoader>
 
 		try
 		{
-			sync = SceneManager.UnloadSceneAsync(scene);	
+			sync = SceneManager.UnloadSceneAsync(scene);
 		}
 		catch (Exception ex)
 		{
@@ -126,10 +120,57 @@ public class SceneLoader : Singleton<SceneLoader>
 
 		if (sync != null)
 		{
-			while(sync.isDone == false) { yield return null; }
+			while (sync.isDone == false) { yield return null; }
 		}
 
 		sync = Resources.UnloadUnusedAssets();
-		while(sync.isDone == false) { yield return null; }
+		while (sync.isDone == false) { yield return null; }
+	}
+
+	public void ReloadScene(string scene, bool showLoadingScreen = true)
+	{
+		StartCoroutine(reloadScene(scene, showLoadingScreen));
+	}
+
+	IEnumerator reloadScene(string scene, bool showLoadingScreen)
+	{
+		yield return StartCoroutine(unloadScene(scene));
+		yield return StartCoroutine(loadScene(scene, showLoadingScreen, true));
+		SetActiveScene(scene);
+	}
+
+	public void ReloadActiveScene(bool showLoadingScreen = true)
+	{
+		ReloadScene(SceneManager.GetActiveScene().name, showLoadingScreen);
+	}
+
+	public void SetActiveScene(Scene scene)
+	{
+		SceneManager.SetActiveScene(scene);
+	}
+
+	public Scene GetActiveScene()
+    {
+		return SceneManager.GetActiveScene();
+    }
+
+	public void SetActiveScene(SceneReference scene)
+	{
+		SceneManager.SetActiveScene(SceneManager.GetSceneByName(scene.SceneName));
+	}
+
+	public void SetActiveScene(string scene)
+	{
+		SceneManager.SetActiveScene(SceneManager.GetSceneByName(scene));
+	}
+
+	public string GetActiveSceneName()
+    {
+		return	SceneManager.GetActiveScene().name;
+    }
+
+	public void UnloadActiveScene()
+	{
+		UnloadScene(SceneManager.GetActiveScene().name);
 	}
 }

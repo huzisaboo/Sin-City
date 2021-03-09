@@ -8,6 +8,7 @@ public class MainMenu : Menu
 
 	public void onLoadScene()
 	{
+		SceneLoader.Instance.onSceneLoadedEvent.AddListener(SceneLoadedCallback);
 		SceneLoader.Instance.LoadScene(sceneToLoad, true);
 		MenuManager.Instance.hideMenu(menuClassifier);
 	}
@@ -15,5 +16,11 @@ public class MainMenu : Menu
 	public void onQuitGame()
     {
 		Application.Quit();
+    }
+
+	private void SceneLoadedCallback(List<string> p_scenesLoaded)
+    {
+		SceneLoader.Instance.SetActiveScene(sceneToLoad);
+		SceneLoader.Instance.onSceneLoadedEvent.RemoveListener(SceneLoadedCallback);
     }
 }

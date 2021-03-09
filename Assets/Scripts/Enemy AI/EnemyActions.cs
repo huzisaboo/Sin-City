@@ -61,12 +61,15 @@ public class EnemyActions : MonoBehaviour
     {
         if (!isDead)
         {
-            if (m_isAttacking == true)
+            if(!IsGameOver())
             {
-                AttackTimeLogic();
-                return;
+                if (m_isAttacking == true)
+                {
+                    AttackTimeLogic();
+                    return;
+                }
+                AttackPlayer();
             }
-            AttackPlayer();
         }
     }
 
@@ -160,5 +163,18 @@ public class EnemyActions : MonoBehaviour
     public bool IsDead()
     {
         return isDead;
+    }
+
+    private bool IsGameOver()
+    {
+        if(GameManager.Instance.IsGameOver())
+        {
+            m_steeringAgent.enabled = false;
+            m_animator.SetFloat("Speed", 0.0f);
+            m_animator.SetTrigger("Idle");
+            isDead = true;
+            return true;
+        }
+        return false;
     }
 }
