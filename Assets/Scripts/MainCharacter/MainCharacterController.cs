@@ -5,6 +5,7 @@ public class MainCharacterController : MonoBehaviour
 {
     private Vector3 m_input = Vector3.zero;
     private Animator m_CharacterAnimator;
+    private AudioSource m_audioSource;
     private int m_attackAnimationHash = 0;
     private bool m_isAttacking = false;
     private float m_health = 0.0f;
@@ -46,6 +47,7 @@ public class MainCharacterController : MonoBehaviour
         m_healthBarUI = UIManager.Instance.GetHealthBarUI();
         m_health = m_maxHealth;
         m_healthBarUI.value = m_health;
+        m_audioSource = GetComponent<AudioSource>();
 
         //get the health fill image which is the first child 
         m_healthFill = m_healthBarUI.transform.GetChild(0).GetComponent<Image>();
@@ -93,6 +95,7 @@ public class MainCharacterController : MonoBehaviour
 
     private void AttackEnemy()
     {
+        m_audioSource.Play();
         RaycastHit2D[] hitArray = Physics2D.CircleCastAll(transform.position, 0.2f, transform.right, 1.0f, m_layerMask);
         foreach (RaycastHit2D hit in hitArray)
         {

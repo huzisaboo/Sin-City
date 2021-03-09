@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 7bcc63968550903469f5f56325a270f8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - backgroundSound: {fileID: 8300000, guid: 1deda11d5b7f8d64cb372899c49d4676, type: 3}
+  - enemySwordAttack: {fileID: 8300000, guid: fec1a62765210924c942afc671841ab3, type: 3}
+  - enemyLaserAttack: {fileID: 8300000, guid: 06e9a9b702688594187fd671dfe502fc, type: 3}
+  - bossEnemyAttack: {fileID: 8300000, guid: b136bc762ae972e44bbd767dcb56ccb8, type: 3}
+  - playerSwordAttack: {fileID: 8300000, guid: 4ea48a78a11e8994da12bd8a304eab4b, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
