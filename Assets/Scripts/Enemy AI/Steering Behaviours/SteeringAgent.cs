@@ -27,8 +27,16 @@ public class SteeringAgent : MonoBehaviour
 	[HideInInspector] public bool reachedGoal = false;
 
 	private Animator animator;
+	private Transform m_target;
 
-	private void Start()
+    private void Awake()
+    {
+        if(!GameManager.Instance.GetEnemyList().Contains(this))
+        {
+			GameManager.Instance.AddEnemy(this);
+        }
+    }
+    private void Start()
 	{
 		animator = GetComponent<Animator>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
@@ -127,4 +135,14 @@ public class SteeringAgent : MonoBehaviour
 
 		return totalForce;
 	}
+
+	public void SetTarget(Transform p_target)
+    {
+		m_target = p_target;
+    }
+
+	public Transform GetTarget()
+    {
+		return m_target;
+    }
 }

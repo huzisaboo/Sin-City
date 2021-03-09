@@ -140,6 +140,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 3143168852048301094, guid: f0c1cd392f6b5294080a568141f90579,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143168852048301094, guid: f0c1cd392f6b5294080a568141f90579,
+        type: 3}
+      propertyPath: m_TagString
+      value: player
+      objectReference: {fileID: 0}
     - target: {fileID: 3143168852048301115, guid: f0c1cd392f6b5294080a568141f90579,
         type: 3}
       propertyPath: m_RootOrder
@@ -213,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 674599698}
   - component: {fileID: 674599699}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SeekSteeringBehaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -658,6 +668,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2630529052374422541, guid: ad4874c153aba3c4480b2ed4a04fee08,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630529052374422541, guid: ad4874c153aba3c4480b2ed4a04fee08,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2630529052374422543, guid: ad4874c153aba3c4480b2ed4a04fee08,
         type: 3}
       propertyPath: m_RootOrder
@@ -712,6 +732,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674798186898581266, guid: ad4874c153aba3c4480b2ed4a04fee08,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9000652421111758221, guid: ad4874c153aba3c4480b2ed4a04fee08,
         type: 3}
@@ -899,6 +924,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Circle
       objectReference: {fileID: 0}
+    - target: {fileID: 2051364255776909424, guid: b783ceb2c71899244916617f2007e7cf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2051364255776909426, guid: b783ceb2c71899244916617f2007e7cf,
         type: 3}
       propertyPath: m_RootOrder
@@ -963,6 +993,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1033248673379895472, guid: 1e2f28c56421dec40881a229a4ae04b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3323601649071624751, guid: 1e2f28c56421dec40881a229a4ae04b9,
         type: 3}
       propertyPath: targetObj
@@ -983,6 +1018,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlashEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8047574604617608872, guid: 1e2f28c56421dec40881a229a4ae04b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047574604617608872, guid: 1e2f28c56421dec40881a229a4ae04b9,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8047574604617608885, guid: 1e2f28c56421dec40881a229a4ae04b9,
         type: 3}
       propertyPath: m_ApplyRootMotion
@@ -996,7 +1041,7 @@ PrefabInstance:
     - target: {fileID: 8047574604617608886, guid: 1e2f28c56421dec40881a229a4ae04b9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.28
+      value: -3.61
       objectReference: {fileID: 0}
     - target: {fileID: 8047574604617608886, guid: 1e2f28c56421dec40881a229a4ae04b9,
         type: 3}
