@@ -48,7 +48,7 @@ public class EnemyWaves : MonoBehaviour
             {
                 if(m_isBossWave == true & m_numberOfBossEnemyToSpawn > 0)
                 {
-                    m_enemySpawner.SpawnBossEnemy(m_numberOfBossEnemyToSpawn); //resulting quotient will give the number of boss enemies to spawn
+                    m_enemySpawner.SpawnBossEnemy(); //resulting quotient will give the number of boss enemies to spawn
                     m_numberOfBossEnemyToSpawn--;
                 }
                 if(m_isBossWave == false && m_waveEnemyCount > 0)
